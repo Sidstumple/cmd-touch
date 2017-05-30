@@ -1,0 +1,170 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*Navbar is annoying*/
+.navbar {
+  display: none;
+}
+
+.standard-container {
+  margin: 0 5vw;
+}
+
+.curricula {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.curriculum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21vw;
+  height: 12em;
+  background: #FFCC00;
+}
+
+.curriculum:hover{
+  background: #ffb600;
+  transition: 0.5s;
+}
+
+.curriculum h2 {
+  width: 100%;
+  height: 100%;
+}
+
+.curriculum a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 5em;
+  box-sizing: border-box;
+  background-size: 2.5em;
+  background-position: center 15%;
+}
+
+.propedeuse {
+  background: url("../images/propedeuse.svg") no-repeat;
+}
+
+.verdieping-1 {
+  background: url("../images/v1.svg") no-repeat;
+}
+
+.verdieping-2 {
+  background: url("../images/v2.svg") no-repeat;
+}
+
+.afstuderen {
+  background: url("../images/afstuderen.svg") no-repeat;
+}
+
+
+
+.breadcrumb {
+  font-size: 0.9em;
+  color: #FFCC00;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.breadcrumb-link {
+  font-weight: 700;
+  color: black;
+}
+
+
+.year {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.course {
+  width: 21vw;
+  height: 10em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.course h3 {
+  font-size: 1.3em;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.course h3:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transition: 0.5s;
+}
+
+.blokken {
+  min-width: 20vw;
+  text-align: center;
+}
+
+.blok {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+  margin-right: 0;
+  height: 3em;
+  background: black;
+  color: white;
+  padding-left: 0.5em;
+  box-sizing: border-box;
+}
+
+.blok:first-of-type {
+  margin-top: 0;
+}
+
+.blok {
+  font-weight: 700;
+}
+
+.blok p {
+  margin: 0;
+}
+
+.small-text {
+  font-size: 0.8em;
+  font-weight: 400;
+}

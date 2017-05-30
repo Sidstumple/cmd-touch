@@ -1,0 +1,36 @@
+<article class="standard-container">
+  <p class="breadcrumb">
+    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>{{data.year.slug}}
+  </p>
+
+  <h2>{{data.year.title}}</h2>
+  <div class="year">
+    <div class="courses">
+      {{# each data.course}}
+
+      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
+        <h3>{{title}}</h3>
+      </div>
+
+      {{/each}}
+    </div>
+    <div class="blokken">
+      <div class="blok blok-1">
+        <p>Blok 1</p>
+        <p class="small-text">september - november</p>
+      </div>
+      <div class="blok blok-2">
+        <p>Blok 2</p>
+        <p class="small-text">november - januari</p>
+      </div>
+      <div class="blok blok-3">
+        <p>Blok 3</p>
+        <p class="small-text">januari - april</p>
+      </div>
+      <div class="blok blok-4">
+        <p>Blok 4</p>
+        <p class="small-text">april - juni</p>
+      </div>
+    </div>
+  </div>
+</article>
