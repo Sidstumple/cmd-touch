@@ -12,3 +12,4 @@ Repository for the end assignment of the minor Web Development at the University
 
 ### Should haves:
 - [ ] Inviting, user friendly interface
+- [ ] Extra space for student work
