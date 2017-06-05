@@ -133,12 +133,12 @@ body {
   transition: 0.5s;
 }
 
-.blokken {
+.course-types {
   min-width: 20vw;
   text-align: center;
 }
 
-.blok {
+.course-type {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,21 +150,37 @@ body {
   color: white;
   padding-left: 0.5em;
   box-sizing: border-box;
-}
-
-.blok:first-of-type {
-  margin-top: 0;
-}
-
-.blok {
   font-weight: 700;
 }
 
-.blok p {
+.course-type:first-of-type {
+  margin-top: 0;
+}
+
+.course-type p {
   margin: 0;
 }
 
-.small-text {
+.course-type a {
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.course-type a p {
+    margin-top: 0.2em;
+}
+
+.course-type {
+    position: relative;
+}
+
+.course-type .small-text {
   font-size: 0.8em;
   font-weight: 400;
+  margin-top: 1em;
 }

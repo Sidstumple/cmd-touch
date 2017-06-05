@@ -12,8 +12,8 @@ Course.add({
   title: {type: String, required: true},
   image: {type: Types.CloudinaryImage},
   description: {type: Types.Html, wysiwyg: true, height: 400},
-  blok: { type: Types.Select, options: 'blok 1, blok 2, blok 3, blok 4', default: 'blok 1' },
-  year: { type: Types.Select, options: 'propedeuse, v1, v2, afstuderen', default: 'propedeuse' }
+  category: { type: Types.Select, options: 'technisch, onderzoek, design, project', default: 'technisch' },
+  year: { type: Types.Select, options: 'propedeuse, jaar1, jaar2, afstuderen', default: 'propedeuse'}
 });
 
 Course.register();

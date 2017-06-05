@@ -7,14 +7,14 @@ exports = module.exports = function(req, res) {
   // Set locals
   locals.section = 'curriculum';
   locals.filters = {
-    year: req.params.year
-  }
+    year: req.params.year,
+    course: req.params.course
+  };
 
   locals.data = {
     year: [],
-    blok: [],
-    course: [],
-  }
+    course: []
+  };
 
   // Load curriculum
   view.on('init', function(next) {
@@ -27,11 +27,17 @@ exports = module.exports = function(req, res) {
       next(err);
     });
 
-     var courses = keystone.list('Course').model.find();
+     var courses = keystone.list('Course').model.find({
+       category: locals.filters.course
+     });
+
      courses.exec(function(err, result) {
+       console.log(result);
        locals.data.course = result;
      })
   });
+
+
 
   // Render view
   view.render('year');
