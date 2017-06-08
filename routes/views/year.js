@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
   locals.section = 'curriculum';
   locals.filters = {
     year: req.params.year,
-    course: req.params.course
+    course: req.params.courseType
   };
 
   locals.data = {
@@ -28,7 +28,8 @@ exports = module.exports = function(req, res) {
     });
 
      var courses = keystone.list('Course').model.find({
-       category: locals.filters.course
+       category: locals.filters.course,
+       year: locals.filters.year
      });
 
      courses.exec(function(err, result) {

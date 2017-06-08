@@ -8,7 +8,7 @@
     <div class="courses">
       {{# each data.course}}
       <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
-        <h3>{{title}}</h3>
+        <a href="{{slug}}"><h3>{{title}}</h3></a>
       </div>
 
       {{/each}}
@@ -16,18 +16,18 @@
 
     <div class="course-types">
       <div class="course-type course-type-1">
-        <a href="Project"><p>Projecten</p></a>
+        <a href="project"><p>Projecten</p></a>
       </div>
       <div class="course-type course-type-2">
-        <a href="Technisch"><p>Frontend Development</p></a>
+        <a href="technisch"><p>Frontend Development</p></a>
         <p class="small-text">Technische vakken</p>
       </div>
       <div class="course-type course-type-3">
-        <a href="Design"><p>User Interface Design</p></a>
+        <a href="design"><p>User Interface Design</p></a>
         <p class="small-text">Design vakken</p>
       </div>
       <div class="course-type course-type-4">
-        <a href="Onderzoek"><p>User Experience Design</p></a>
+        <a href="onderzoek"><p>User Experience Design</p></a>
         <p class="small-text">Onderzoeks vakken</p>
       </div>
     </div>

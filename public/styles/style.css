@@ -56,11 +56,11 @@ body {
   background: url("../images/propedeuse.svg") no-repeat;
 }
 
-.verdieping-1 {
+.jaar-2 {
   background: url("../images/v1.svg") no-repeat;
 }
 
-.verdieping-2 {
+.jaar-3 {
   background: url("../images/v2.svg") no-repeat;
 }
 
@@ -126,6 +126,12 @@ body {
   margin: 0;
   padding: 0.5em;
   box-sizing: border-box;
+}
+
+.course a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 }
 
 .course h3:hover {

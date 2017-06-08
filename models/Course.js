@@ -13,7 +13,7 @@ Course.add({
   image: {type: Types.CloudinaryImage},
   description: {type: Types.Html, wysiwyg: true, height: 400},
   category: { type: Types.Select, options: 'technisch, onderzoek, design, project', default: 'technisch' },
-  year: { type: Types.Select, options: 'propedeuse, jaar1, jaar2, afstuderen', default: 'propedeuse'}
+  year: { type: Types.Select, options: 'propedeuse, jaar-2, jaar-3, afstuderen', default: 'propedeuse'}
 });
 
 Course.register();
