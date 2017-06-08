@@ -33,7 +33,6 @@ exports = module.exports = function(req, res) {
      });
 
      courses.exec(function(err, result) {
-       console.log(result);
        locals.data.course = result;
      })
   });

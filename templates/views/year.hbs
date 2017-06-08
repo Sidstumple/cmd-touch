@@ -1,6 +1,6 @@
 <article class="standard-container">
   <p class="breadcrumb">
-    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>{{data.year.slug}}
+    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>{{data.year.slug}}/{{filters.course}}
   </p>
 
   <h2>{{data.year.title}}</h2>
@@ -8,7 +8,7 @@
     <div class="courses">
       {{# each data.course}}
       <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
-        <a href="{{slug}}"><h3>{{title}}</h3></a>
+        <a href="{{category}}/{{slug}}"><h3>{{title}}</h3></a>
       </div>
 
       {{/each}}

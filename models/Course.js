@@ -11,7 +11,7 @@ var Course = new keystone.List('Course', {
 Course.add({
   title: {type: String, required: true},
   image: {type: Types.CloudinaryImage},
-  description: {type: Types.Html, wysiwyg: true, height: 400},
+  description: {type: Types.Html, wysiwyg: false, height: 400},
   category: { type: Types.Select, options: 'technisch, onderzoek, design, project', default: 'technisch' },
   year: { type: Types.Select, options: 'propedeuse, jaar-2, jaar-3, afstuderen', default: 'propedeuse'}
 });

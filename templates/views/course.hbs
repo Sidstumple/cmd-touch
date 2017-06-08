@@ -1,0 +1,32 @@
+<article class="standard-container">
+
+
+
+  <p class="breadcrumb">
+    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>
+    <a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}">{{data.year.slug}}/</a>
+    <a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}/{{filters.courseType}}">{{filters.courseType}}/</a>
+    {{data.course.slug}}
+  </p>
+
+  <h2>{{data.course.title}}</h2>
+
+  <div class="flex-row">
+    <div class="course-detail">
+      <img src="{{cloudinaryUrl data.course.image}}" alt="{{title}}" class="course-image">
+      <div class="course-description">
+        {{data.course.description}}
+      </div>
+    </div>
+
+    <div class="suggestions">
+      {{# each data.courseType}}
+      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
+        <a href="/{{data.year.slug}}/{{category}}/{{slug}}"><h3>{{title}}</h3></a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+
+</article>

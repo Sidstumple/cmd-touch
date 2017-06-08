@@ -7,9 +7,18 @@ body {
   display: none;
 }
 
+/*Reusable classes*/
 .standard-container {
   margin: 0 5vw;
 }
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*End reusable classes*/
+
 
 .curricula {
   display: flex;
@@ -189,4 +198,12 @@ body {
   font-size: 0.8em;
   font-weight: 400;
   margin-top: 1em;
+}
+
+.course-detail {
+    margin-right: 2em;
+}
+
+.course-image {
+  width: 100%;
 }
