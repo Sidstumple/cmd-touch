@@ -9,20 +9,23 @@
     {{data.course.slug}}
   </p>
 
-  <h2>{{data.course.title}}</h2>
-
   <div class="flex-row">
     <div class="course-detail">
-      <img src="{{cloudinaryUrl data.course.image}}" alt="{{title}}" class="course-image">
+      <div class="image">
+        <img src="{{cloudinaryUrl data.course.image}}" alt="{{title}}" class="course-image">
+      </div>
       <div class="course-description">
+        <h2>{{data.course.title}}</h2>
         {{data.course.description}}
+        <p class="capitalize">{{data.course.year}} | {{data.course.blok}} | {{data.course.category}}</p>
       </div>
     </div>
 
     <div class="suggestions">
+      <h3>Vergelijkbare vakken:</h3>
       {{# each data.courseType}}
-      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
-        <a href="/{{data.year.slug}}/{{category}}/{{slug}}"><h3>{{title}}</h3></a>
+      <div class="course course-suggestion {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
+        <a href="{{slug}}"><h3>{{title}}</h3></a>
       </div>
       {{/each}}
     </div>

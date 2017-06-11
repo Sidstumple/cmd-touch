@@ -36,6 +36,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/curriculum', routes.views.curriculum);
+	app.get('/curriculum/:year', routes.views.year);
 	app.get('/curriculum/:year/:courseType', routes.views.year);
 	app.get('/curriculum/:year/:courseType/:course', routes.views.course);
 

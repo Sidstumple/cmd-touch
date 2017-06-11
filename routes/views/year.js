@@ -13,6 +13,7 @@ exports = module.exports = function(req, res) {
 
   locals.data = {
     year: [],
+    courseType: [],
     course: []
   };
 
@@ -27,6 +28,12 @@ exports = module.exports = function(req, res) {
       next(err);
     });
 
+    var courseType = keystone.list('CourseType').model.find();
+
+    courseType.exec(function(err, result) {
+      locals.data.courseType = result;
+    })
+
      var courses = keystone.list('Course').model.find({
        category: locals.filters.course,
        year: locals.filters.year
@@ -36,8 +43,6 @@ exports = module.exports = function(req, res) {
        locals.data.course = result;
      })
   });
-
-
 
   // Render view
   view.render('year');

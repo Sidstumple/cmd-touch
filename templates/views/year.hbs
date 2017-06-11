@@ -1,7 +1,15 @@
 <article class="standard-container">
   <p class="breadcrumb">
-    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>{{data.year.slug}}/{{filters.course}}
+    <a class="breadcrumb-link" href="/curriculum">curriculum/</a><a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}">{{data.year.slug}}</a>/{{filters.course}}
   </p>
+
+  <div class="course-types">
+    {{#each data.courseType}}
+    <div class="course-type">
+      <a href="{{slug}}"><p>{{title}}</p></a>
+    </div>
+    {{/each}}
+  </div>
 
   <h2>{{data.year.title}}</h2>
   <div class="year">
@@ -12,24 +20,6 @@
       </div>
 
       {{/each}}
-    </div>
-
-    <div class="course-types">
-      <div class="course-type course-type-1">
-        <a href="project"><p>Projecten</p></a>
-      </div>
-      <div class="course-type course-type-2">
-        <a href="technisch"><p>Frontend Development</p></a>
-        <p class="small-text">Technische vakken</p>
-      </div>
-      <div class="course-type course-type-3">
-        <a href="design"><p>User Interface Design</p></a>
-        <p class="small-text">Design vakken</p>
-      </div>
-      <div class="course-type course-type-4">
-        <a href="onderzoek"><p>User Experience Design</p></a>
-        <p class="small-text">Onderzoeks vakken</p>
-      </div>
     </div>
   </div>
 </article>

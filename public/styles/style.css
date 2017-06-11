@@ -1,5 +1,13 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0.5em 0;
+  font-size: 2em;
 }
 
 /*Navbar is annoying*/
@@ -9,13 +17,23 @@ body {
 
 /*Reusable classes*/
 .standard-container {
-  margin: 0 5vw;
+  padding: 0 5vw;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.capitalize {
+  text-transform: capitalize;
+  font-weight: bold;
 }
 /*End reusable classes*/
 
@@ -24,16 +42,20 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
+  height: 50vw;
+  box-sizing: border-box;
 }
 
 .curriculum {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 21vw;
-  height: 12em;
+  width: 49%;
+  height: 23vw;
   background: #FFCC00;
+  box-sizing: border-box;
 }
 
 .curriculum:hover{
@@ -53,11 +75,12 @@ body {
   height: 100%;
   width: 100%;
   color: black;
+  font-size: 3.8vw;
   text-align: center;
   text-decoration: none;
-  padding-top: 5em;
+  padding-top: 3em;
   box-sizing: border-box;
-  background-size: 2.5em;
+  background-size: 6vw;
   background-position: center 15%;
 }
 
@@ -110,9 +133,11 @@ body {
 
 .course {
   width: 21vw;
-  height: 10em;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  height: 11em;
+  margin-right: 0.5vw;
+  margin-bottom: 0.5vw;
+  min-width: 15em;
+  flex-grow: 1;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -121,13 +146,16 @@ body {
   box-sizing: border-box;
 }
 
+.course:first-of-type {
+  width: 42.5vw;
+}
+
 .course h3 {
-  font-size: 1.3em;
+  font-size: 1em;
   color: white;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,6 +169,8 @@ body {
   width: 100%;
   height: 100%;
   text-decoration: none;
+  display: flex;
+  align-items: flex-end;
 }
 
 .course h3:hover {
@@ -149,15 +179,19 @@ body {
 }
 
 .course-types {
-  min-width: 20vw;
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .course-type {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
   margin: 0.5em;
   margin-right: 0;
   height: 3em;
@@ -168,15 +202,14 @@ body {
   font-weight: 700;
 }
 
-.course-type:first-of-type {
-  margin-top: 0;
-}
-
 .course-type p {
   margin: 0;
 }
 
 .course-type a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: white;
   position: absolute;
@@ -186,14 +219,6 @@ body {
   right: 0;
 }
 
-.course-type a p {
-    margin-top: 0.2em;
-}
-
-.course-type {
-    position: relative;
-}
-
 .course-type .small-text {
   font-size: 0.8em;
   font-weight: 400;
@@ -201,9 +226,46 @@ body {
 }
 
 .course-detail {
-    margin-right: 2em;
+  margin-right: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  width: 70%;
+}
+
+.image {
+  width: 50%;
+  max-height: 40vh;
+  overflow: hidden;
+  flex-grow: 1;
 }
 
 .course-image {
+  width: 100%;
+}
+
+.course-description {
+  width: 50%;
+  flex-grow: 1;
+  min-width: 22em;
+  padding-left: 1em;
+  box-sizing: border-box;
+}
+
+.course-description h2 {
+  margin-top: 0;
+}
+
+.suggestions {
+  width: 20%;
+  flex-grow: 1;
+  min-width: 13em;
+}
+
+.suggestions h3 {
+  margin-top: 0;
+}
+
+.course-suggestion, .course-suggestion:first-of-type {
   width: 100%;
 }
