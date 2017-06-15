@@ -14,6 +14,19 @@ Repository for the end assignment of the minor Web Development at the University
 - [ ] Inviting, user friendly interface
 - [ ] Extra space for student work
 
+## Dependencies
+- `keystone`(https://www.npmjs.com/package/keystone)
+- `lodash`(https://www.npmjs.com/package/lodash)
+- `moment`(https://www.npmjs.com/package/moment)
+- `cloudinary`(https://www.npmjs.com/package/cloudinary)
+- `express-handlebars`(https://www.npmjs.com/package/express-handlebars)
+- `handlebars`(https://www.npmjs.com/package/handlebars)
+- `node-sass`(https://www.npmjs.com/package/node-sass)
+- `node-sass-middleware`(https://www.npmjs.com/package/node-sass-middleware)
+- `dotenv`(https://www.npmjs.com/package/dotenv)
+- `keystone-email`(https://www.npmjs.com/package/keystone-email)
+- `async`(https://www.npmjs.com/package/async)
+
 ## Install
 1. Clone this repository
 2. Create a .env file with the following variables:
@@ -29,3 +42,4 @@ MONGO_URI
 7. For login credentials send an email to info@cydstumpel.nl
 
 ## Keystone
+This website runs on Keystone, which is a CMS for Node.js. 
