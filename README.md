@@ -23,6 +23,9 @@ CLOUDINARY_URL
 MONGO_URI
 ```
 3. Open the terminal, navigate to the cloned folder
-4. run `node keystone`
-5. open http://localhost:3000/curriculum for the frontend and http://localhost:3000/keystone to edit the backend.
-6. For login credentials send an email to info@cydstumpel.nl
+4. run `npm install`
+5. run `node keystone`
+6. open http://localhost:3000/curriculum for the frontend and http://localhost:3000/keystone to edit the backend.
+7. For login credentials send an email to info@cydstumpel.nl
+
+## Keystone
