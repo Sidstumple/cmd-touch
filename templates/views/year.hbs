@@ -26,7 +26,7 @@
     <div class="course-block">
       <p class="sort-title">Sorteer op soort vak:</p>
       <div class="course-types">
-        {{#each data.courseType}}
+        {{#each courseType}}
         <div class="course-type">
           <a href="{{slug}}"><p>{{title}}</p></a>
         </div>
@@ -39,14 +39,21 @@
 
 
   <div class="year">
-    <h2>{{data.year.title}}</h2>
+    <h2>{{year.title}}</h2>
     <div class="courses">
-      {{# each data.course}}
+      {{#if course}}
+      {{# each course}}
       <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
         <a href="{{category}}/{{slug}}"><h3>{{title}}</h3></a>
       </div>
-
       {{/each}}
+      {{else}}
+      {{# each blok}}
+      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
+        <a href="{{category}}/{{slug}}"><h3>{{title}}</h3></a>
+      </div>
+      {{/each}}
+      {{/if}}
     </div>
   </div>
 </article>
