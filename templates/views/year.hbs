@@ -1,39 +1,45 @@
 <article class="grid-container standard-container">
 
-<div class="sort">
+<div class="header">
   <p class="breadcrumb">
     <a class="breadcrumb-link" href="/curriculum">curriculum/</a><a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}">{{data.year.slug}}</a>/{{filters.course}}
   </p>
-  <h2>{{data.year.title}}</h2>
-  <p>Sorteer op blok:</p>
-  <div class="course-types">
-    <div class="course-type">
-      <a href="blok-1"><p>blok 1</p></a>
+  <div class="sort">
+    <div class="course-block">
+      <p class="sort-title">Sorteer op blok:</p>
+      <div class="course-types">
+        <div class="course-type">
+          <a href="blok-1"><p>blok 1</p></a>
+        </div>
+        <div class="course-type">
+          <a href="blok-2"><p>blok 2</p></a>
+        </div>
+        <div class="course-type">
+          <a href="blok-3"><p>blok 3</p></a>
+        </div>
+        <div class="course-type">
+          <a href="blok-4"><p>blok 4</p></a>
+        </div>
+      </div>
     </div>
-    <div class="course-type">
-      <a href="blok-2"><p>blok 2</p></a>
-    </div>
-    <div class="course-type">
-      <a href="blok-3"><p>blok 3</p></a>
-    </div>
-    <div class="course-type">
-      <a href="blok-4"><p>blok 4</p></a>
-    </div>
-  </div>
 
-  <p>Sorteer op soort vak:</p>
-  <div class="course-types">
-    {{#each data.courseType}}
-    <div class="course-type">
-      <a href="{{slug}}"><p>{{title}}</p></a>
+    <div class="course-block">
+      <p class="sort-title">Sorteer op soort vak:</p>
+      <div class="course-types">
+        {{#each data.courseType}}
+        <div class="course-type">
+          <a href="{{slug}}"><p>{{title}}</p></a>
+        </div>
+        {{/each}}
+      </div>
     </div>
-    {{/each}}
   </div>
 </div>
 
 
 
   <div class="year">
+    <h2>{{data.year.title}}</h2>
     <div class="courses">
       {{# each data.course}}
       <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
