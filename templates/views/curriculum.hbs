@@ -1,12 +1,11 @@
-<div class="standard-container">
-<h1>Bekijk het CMD curriculum per jaar:</h1>
+<div class="grid-container">
+  <h1>Bekijk het CMD curriculum per jaar:</h1>
 
-<div class="curricula">
-  {{# each curriculum}}
-  <div class="curriculum">
-    <h2><a href="{{yearUrl slug}}/project" class="{{slug}}">{{title}}</a></h2>
+  <div class="curricula">
+    {{# each curriculum}}
+    <div class="curriculum">
+      <h2><a href="{{yearUrl slug}}/project" class="{{slug}}">{{title}}</a></h2>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
-</div>
-
 </div>

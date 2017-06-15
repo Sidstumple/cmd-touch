@@ -13,6 +13,7 @@ exports = module.exports = function(req, res) {
 
   locals.data = {
     year: [],
+    blok: [],
     courseType: [],
     course: []
   };
@@ -28,11 +29,19 @@ exports = module.exports = function(req, res) {
       next(err);
     });
 
+    var blok = keystone.list('Course').model.find({
+      blok: locals.filters.course
+    });
+
+    blok.exec(function(err, result) {
+      locals.data.blok = result;
+    });
+
     var courseType = keystone.list('CourseType').model.find();
 
     courseType.exec(function(err, result) {
       locals.data.courseType = result;
-    })
+    });
 
      var courses = keystone.list('Course').model.find({
        category: locals.filters.course,
@@ -41,6 +50,7 @@ exports = module.exports = function(req, res) {
 
      courses.exec(function(err, result) {
        locals.data.course = result;
+       console.log(locals.data.course);
      })
   });
 

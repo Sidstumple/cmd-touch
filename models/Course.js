@@ -8,23 +8,13 @@ var Course = new keystone.List('Course', {
   autokey: {path: 'slug', from: 'title', unique: true}
 });
 
-// var courseType = keystone.list('CourseType').model.find();
-//
-// var data = {
-//   courseType: []
-// };
-//
-// courseType.exec(function(err, result) {
-//   data.courseType = result;
-// });
-
 Course.add({
   title: {type: String, required: true},
   image: {type: Types.CloudinaryImage},
   description: {type: Types.Html, wysiwyg: false, height: 400},
   category: {type: Types.Select, options: 'technisch, interaction, content, design, project', default: 'technisch' },
   year: {type: Types.Select, options: 'propedeuse, jaar-2, jaar-3, afstuderen', default: 'propedeuse'},
-  blok: {type: Types.Select, options: 'blok 1, blok 2, blok 3, blok 4', default: 'blok 1'}
+  blok: {type: Types.Select, options: 'blok-1, blok-2, blok-3, blok-4', default: 'blok-1'}
 });
 
 Course.register();
