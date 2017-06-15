@@ -32,7 +32,7 @@ http://cmd-touch.herokuapp.com/curriculum
 
 ## Install
 1. Clone this repository
-2. Create a .env file with the following variables:
+2. Create a .env file with the following keys:
 ```.env
 COOKIE_SECRET
 CLOUDINARY_URL
