@@ -1,6 +1,9 @@
 # CMD Touch
 Repository for the end assignment of the minor Web Development at the University of Applied Sciences. This repository has a [code guideline](/code-styleguide.md), which should be followed.
 
+## Live link
+http://cmd-touch.herokuapp.com/curriculum
+
 ## MOSCOW
 ### Must haves:
 - [ ] Fit in viewport, no scrolling
@@ -42,4 +45,44 @@ MONGO_URI
 7. For login credentials send an email to info@cydstumpel.nl
 
 ## Keystone
-This website runs on Keystone, which is a CMS for Node.js. 
+This website runs on Keystone, which is a CMS for Node.js. Keystone works with MongoDB models, to add a model:
+```javascript
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
+
+// Create a new Keystone list
+var Curriculum = new keystone.List('Curriculum', {
+  map: {name:'title'},
+  singular: 'curriculum',
+  plural: 'curricula',
+  autokey: {path: 'slug', from: 'title', unique: true} //gives every item made in curriculum a unique slug based on the title
+});
+
+// Gives the ability to add a title and an image
+Curriculum.add({
+  title: {type: String, required: true},
+  image: {type: Types.CloudinaryImage},
+});
+
+// Register Curriculum and make it available in the backend
+Curriculum.register();
+```
+To send it to a page:
+```javascript
+var keystone = require('keystone');
+
+exports = module.exports = function(req, res) {
+  var view = new keystone.View(req,res);
+  var locals = res.locals;
+
+  // Set locals
+  locals.section = 'curriculum';
+
+  // Load curriculum
+  view.query('curriculum', keystone.list('Curriculum').model.find());
+
+  // Render view
+  view.render('curriculum');
+}
+```
+
