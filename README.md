@@ -45,7 +45,7 @@ MONGO_URI
 7. For login credentials send an email to info@cydstumpel.nl
 
 ## Keystone
-This website runs on Keystone, which is a CMS for Node.js. Keystone works with MongoDB models, to add a model:
+This website runs on Keystone, which is a CMS for Node.js. Keystone works with MongoDB models, to add a model create a new .js file in the `models` folder:
 ```javascript
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
@@ -67,7 +67,7 @@ Curriculum.add({
 // Register Curriculum and make it available in the backend
 Curriculum.register();
 ```
-To send it to a page:
+To send it to a page create a new .js file in `routes/views`:
 ```javascript
 var keystone = require('keystone');
 
@@ -86,3 +86,17 @@ exports = module.exports = function(req, res) {
 }
 ```
 
+To use it on a page, create a new or use an existing .hbs file in the `templates/views` folder:
+```html
+<div class="grid-container">
+  <h1>Bekijk het CMD curriculum per jaar:</h1>
+
+  <div class="curricula">
+    {{# each curriculum}}
+    <div class="curriculum">
+      <h2><a href="{{yearUrl slug}}/project" class="{{slug}}">{{title}}</a></h2>
+    </div>
+    {{/each}}
+  </div>
+</div>
+```
