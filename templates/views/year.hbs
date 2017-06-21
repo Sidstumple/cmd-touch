@@ -1,59 +1,98 @@
-<article class="grid-container standard-container">
+<article class="standard-container">
 
-<div class="header">
-  <p class="breadcrumb">
-    <a class="breadcrumb-link" href="/curriculum">curriculum/</a><a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}">{{data.year.slug}}</a>/{{filters.course}}
-  </p>
-  <div class="sort">
-    <div class="course-block">
-      <p class="sort-title">Sorteer op blok:</p>
-      <div class="course-types">
-        <div class="course-type">
-          <a href="blok-1"><p>blok 1</p></a>
-        </div>
-        <div class="course-type">
-          <a href="blok-2"><p>blok 2</p></a>
-        </div>
-        <div class="course-type">
-          <a href="blok-3"><p>blok 3</p></a>
-        </div>
-        <div class="course-type">
-          <a href="blok-4"><p>blok 4</p></a>
-        </div>
+  <h2>{{year.title}}</h2>
+  <p>{{year.description}}</p>
+
+  <div class="column-grid">
+    <div class="blok1 blokken">
+      <div class="header-blok1">
+        <h2>Blok 1</h2>
       </div>
+      {{#each course}}
+        {{#ifeq blok 'blok-1'}}
+          {{#ifeq category 'project'}}
+            <div class="project">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+            {{else}}
+            <div class="vak">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+          {{/ifeq}}
+        {{/ifeq}}
+      {{/each}}
     </div>
-
-    <div class="course-block">
-      <p class="sort-title">Sorteer op soort vak:</p>
-      <div class="course-types">
-        {{#each courseType}}
-        <div class="course-type">
-          <a href="{{slug}}"><p>{{title}}</p></a>
-        </div>
-        {{/each}}
+    <div class="blok2 blokken">
+      <div class="header-blok2">
+        <h2>Blok 2</h2>
       </div>
+      {{#each course}}
+        {{#ifeq blok 'blok-2'}}
+          {{#ifeq category 'project'}}
+            <div class="project">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+            {{else}}
+            <div class="vak">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+          {{/ifeq}}
+        {{/ifeq}}
+      {{/each}}
+    </div>
+    <div class="blok3 blokken">
+      <div class="header-blok3">
+        <h2>Blok 3</h2>
+      </div>
+      {{#each course}}
+        {{#ifeq blok 'blok-3'}}
+          {{#ifeq category 'project'}}
+            <div class="project">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+            {{else}}
+            <div class="vak">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+          {{/ifeq}}
+        {{/ifeq}}
+      {{/each}}
+    </div>
+    <div class="blok4 blokken">
+      <div class="header-blok4">
+        <h2>Blok 4</h2>
+      </div>
+      {{#each course}}
+        {{#ifeq blok 'blok-4'}}
+          {{#ifeq category 'project'}}
+            <div class="project">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+            {{else}}
+            <div class="vak">
+              <a href="{{year}}/{{category}}/{{slug}}">{{title}}</a>
+            </div>
+          {{/ifeq}}
+        {{/ifeq}}
+      {{/each}}
     </div>
   </div>
-</div>
 
-
-
-  <div class="year">
-    <h2>{{year.title}}</h2>
-    <div class="courses">
-      {{#if course}}
-      {{# each course}}
-      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
-        <a href="{{category}}/{{slug}}"><h3>{{title}}</h3></a>
-      </div>
-      {{/each}}
-      {{else}}
-      {{# each blok}}
-      <div class="course {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
-        <a href="{{category}}/{{slug}}"><h3>{{title}}</h3></a>
-      </div>
-      {{/each}}
-      {{/if}}
+  <div class="legenda">
+    <div class="projecten project">
+      <p>Projecten</p>
+    </div>
+    <div class="kernvakken vak">
+      <p>Kernvakken</p>
     </div>
   </div>
 </article>
+
+<nav>
+  {{#each allYears}}
+    <div class="nav-item">
+      <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
+      </p>
+    </div>
+  {{/each}}
+</nav>

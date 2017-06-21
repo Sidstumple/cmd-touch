@@ -11,6 +11,7 @@ var Curriculum = new keystone.List('Curriculum', {
 Curriculum.add({
   title: {type: String, required: true},
   image: {type: Types.CloudinaryImage},
+  description: {type: Types.Html, wysiwyg: false, height: 400}
 });
 
 Curriculum.register();

@@ -24,7 +24,7 @@ h2 {
 .standard-container {
   padding: 0 5vw;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   box-sizing: border-box;
 }
 
@@ -97,24 +97,9 @@ h2 {
   text-transform: uppercase;
   padding-top: 3em;
   box-sizing: border-box;
+  background-repeat: no-repeat;
   background-size: 11vh;
   background-position: center 15%;
-}
-
-.propedeuse {
-  background: url("../images/propedeuse.svg") no-repeat;
-}
-
-.jaar-2 {
-  background: url("../images/v1.svg") no-repeat;
-}
-
-.jaar-3 {
-  background: url("../images/v2.svg") no-repeat;
-}
-
-.afstuderen {
-  background: url("../images/afstuderen.svg") no-repeat;
 }
 
 .breadcrumb {
@@ -301,4 +286,138 @@ h2 {
 
 .course-suggestion, .course-suggestion:first-of-type {
   width: 100%;
+}
+
+/* INITIAL PAGE FOR YEAR  */
+.column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5em;
+  justify-content: center;
+}
+
+.blokken {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5em;
+  align-content: start;
+}
+
+.blokken div {
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project {
+  background: #FFCC00;
+  border: .1em solid #FFCC00;
+  box-sizing: border-box;
+  background-image: url(/images/info.png);
+  background-repeat: no-repeat;
+  background-size: 1em;
+}
+
+.project a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  margin-top: 0.5em;
+}
+
+.vak {
+  background: black;
+  order: 1;
+  box-sizing: border-box;
+  background-image: url(/images/info.png);
+  background-repeat: no-repeat;
+  background-size: 1em;
+}
+
+
+.vak a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  margin-top: 0.5em;
+}
+
+.svg {
+  width: 100%;
+}
+
+svg {
+  width: 1em;
+}
+
+/*Legenda*/
+.legenda {
+  margin-top: 1em;
+}
+
+.legenda div {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legenda p {
+  margin: 0;
+}
+
+.projecten, .kernvakken {
+  height: 3em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  width: 10em;
+}
+
+.kernvakken {
+  color: white;
+}
+
+/*Navigation*/
+nav {
+  background: #FFCC00;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  bottom: 0;
+  position: absolute;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.nav-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item img {
+  height: 2em;
+  padding-right: 1em;
 }
