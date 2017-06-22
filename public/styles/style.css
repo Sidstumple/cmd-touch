@@ -291,7 +291,7 @@ h2 {
 /* INITIAL PAGE FOR YEAR  */
 .column-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   grid-gap: 0.5em;
   justify-content: center;
 }
@@ -330,7 +330,7 @@ h2 {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.1em;
-  margin-top: 0.5em;
+  text-align: center;
 }
 
 .vak {
@@ -354,7 +354,7 @@ h2 {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.1em;
-  margin-top: 0.5em;
+  text-align: center;
 }
 
 .svg {
@@ -402,7 +402,7 @@ nav {
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   bottom: 0;
-  position: absolute;
+  position: fixed;
 }
 
 nav a {
