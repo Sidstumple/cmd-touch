@@ -101,20 +101,6 @@ h2 {
   background-position: center 15%;
 }
 
-.breadcrumb {
-  font-size: 0.9em;
-  color: #FFCC00;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  padding-top: 1em;
-}
-
-.breadcrumb-link {
-  font-weight: 700;
-  color: black;
-}
-
 /*Course types*/
 .sort {
   display: grid;
@@ -189,13 +175,6 @@ h2 {
   width: 100%;
 }
 
-.courses {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 50vh;
-  grid-gap: .5em;
-}
-
 .course {
   flex-grow: 1;
   background-position: center;
@@ -206,16 +185,11 @@ h2 {
   box-sizing: border-box;
 }
 
-.course:first-of-type {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
-
 .course h3 {
   font-size: 1em;
   font-weight: 100;
   color: white;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   display: flex;
@@ -236,7 +210,7 @@ h2 {
 }
 
 .course h3:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   transition: 0.5s;
 }
 
@@ -283,8 +257,8 @@ h2 {
   margin-top: 0;
 }
 
-.course-suggestion, .course-suggestion:first-of-type {
-  width: 100%;
+.course-suggestion {
+  height: 9em;
 }
 
 /* INITIAL PAGE FOR YEAR  */
@@ -443,6 +417,7 @@ nav {
   background: #ffd633;
   color: black;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .filter p {

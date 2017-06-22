@@ -14,53 +14,46 @@ exports = module.exports = function(req, res) {
   };
 
   locals.data = {
-    year: [],
-    course: [],
     courseType: []
   };
 
   // Load curriculum
-  view.on('init', function(next) {
-    var q = keystone.list('Curriculum').model.findOne({
-      slug: locals.filters.year
-    });
+  view.query('year', keystone.list('Curriculum').model.findOne({
+    slug: locals.filters.year
+  }));
 
-    q.exec(function(err, result) {
-      locals.data.year = result;
-      next(err);
-    });
+  view.query('course', keystone.list('Course').model.findOne({
+    slug: locals.filters.course
+  }));
 
-     var course = keystone.list('Course').model.findOne({
-       slug: locals.filters.course
-     });
+  // view.query('courseType', keystone.list('Course').model.find({
+  //   category: locals.filters.courseType
+  // }))
 
-     course.exec(function(err, result) {
-       locals.data.course = result;
-     })
-
+    //  create semi random suggestions based on category
      var courseType = keystone.list('Course').model.find({
        category: locals.filters.courseType
-     })
+     });
 
-     // create random suggestions based on category
      courseType.exec(function(err, result) {
        var suggestions = []
-       while(suggestions.length < 3){
+       while(suggestions.length < 5){
          var randomnumber = Math.ceil(Math.random() * result.length)
          if(suggestions.indexOf(randomnumber) > -1) continue;
          suggestions[suggestions.length] = randomnumber;
        }
 
        for(i = 0; i < suggestions.length; i++) {
-         var courseSuggestions = result[suggestions[i]];
-         locals.data.courseType.push(courseSuggestions);
+         if (result[suggestions[i]] !== undefined) {
+           var courseSuggestions = result[suggestions[i]];
+           locals.data.courseType.push(courseSuggestions);
+         }
+         else {
+           console.log('undefined');
+         }
        }
-
-
        console.log(locals.data.courseType);
      })
-
-  });
 
   // Render view
   view.render('course');

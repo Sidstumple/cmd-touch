@@ -1,20 +1,13 @@
 <article class="standard-container">
-  <p class="breadcrumb">
-    <a class="breadcrumb-link" href="/curriculum">curriculum/</a>
-    <a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}">{{data.year.slug}}/</a>
-    <a class="breadcrumb-link" href="/curriculum/{{data.year.slug}}/{{filters.courseType}}">{{filters.courseType}}/</a>
-    {{data.course.slug}}
-  </p>
-
   <div class="flex-row">
     <div class="course-detail">
       <div class="image">
-        <img src="{{cloudinaryUrl data.course.image}}" alt="{{title}}" class="course-image">
+        <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
       </div>
       <div class="course-description">
-        <h2>{{data.course.title}}</h2>
-        {{data.course.description}}
-        <p class="capitalize">{{data.course.year}} | {{data.course.blok}} | {{data.course.category}}</p>
+        <h2>{{course.title}}</h2>
+        {{course.description}}
+        <p class="capitalize">{{course.year}} | {{course.blok}} | {{course.category}}</p>
       </div>
     </div>
 
