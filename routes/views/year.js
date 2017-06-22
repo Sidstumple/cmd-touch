@@ -16,6 +16,8 @@ exports = module.exports = function(req, res) {
 
   view.query('allYears', keystone.list('Curriculum').model.find());
 
+  view.query('courseType', keystone.list('CourseType').model.find());
+
   view.query('course', keystone.list('Course').model.find({
     year: locals.filters.year,
   }));
