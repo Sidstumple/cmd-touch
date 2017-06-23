@@ -26,34 +26,32 @@ exports = module.exports = function(req, res) {
     slug: locals.filters.course
   }));
 
-  // view.query('courseType', keystone.list('Course').model.find({
-  //   category: locals.filters.courseType
-  // }))
+  view.query('allYears', keystone.list('Curriculum').model.find());
 
-    //  create semi random suggestions based on category
-     var courseType = keystone.list('Course').model.find({
-       category: locals.filters.courseType
-     });
+  //  create semi random suggestions based on category
+   var courseType = keystone.list('Course').model.find({
+     category: locals.filters.courseType
+   });
 
-     courseType.exec(function(err, result) {
-       var suggestions = []
-       while(suggestions.length < 5){
-         var randomnumber = Math.ceil(Math.random() * result.length)
-         if(suggestions.indexOf(randomnumber) > -1) continue;
-         suggestions[suggestions.length] = randomnumber;
+   courseType.exec(function(err, result) {
+     var suggestions = []
+     while(suggestions.length < 4){
+       var randomnumber = Math.ceil(Math.random() * result.length)
+       if(suggestions.indexOf(randomnumber) > -1) continue;
+       suggestions[suggestions.length] = randomnumber;
+     }
+
+     for(i = 0; i < suggestions.length; i++) {
+       if (result[suggestions[i]] !== undefined) {
+         var courseSuggestions = result[suggestions[i]];
+         locals.data.courseType.push(courseSuggestions);
        }
-
-       for(i = 0; i < suggestions.length; i++) {
-         if (result[suggestions[i]] !== undefined) {
-           var courseSuggestions = result[suggestions[i]];
-           locals.data.courseType.push(courseSuggestions);
-         }
-         else {
-           console.log('undefined');
-         }
+       else {
+         console.log('undefined');
        }
-       console.log(locals.data.courseType);
-     })
+     }
+     console.log(locals.data.courseType);
+   })
 
   // Render view
   view.render('course');

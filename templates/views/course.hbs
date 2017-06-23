@@ -1,19 +1,21 @@
 <article class="standard-container">
-  <div class="flex-row">
-    <div class="course-detail">
-      <div class="image">
-        <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
-      </div>
-      <div class="course-description">
-        <h2>{{course.title}}</h2>
-        {{course.description}}
-        <p class="capitalize">{{course.year}} | {{course.blok}} | {{course.category}}</p>
+  <div class="grid-row">
+    <div class="course-info">
+      <div class="course-detail">
+        <div class="image">
+          <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
+        </div>
+        <div class="course-description">
+          <h2>{{course.title}}</h2>
+          <p>{{course.description}}</p>
+          <p class="capitalize">{{course.year}} | {{course.blok}} | {{course.category}}</p>
+        </div>
       </div>
     </div>
 
     <div class="suggestions">
       <h3>Vergelijkbare vakken:</h3>
-      {{# each data.courseType}}
+      {{#each data.courseType}}
       <div class="course course-suggestion {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
         <a href="{{slug}}"><h3>{{title}}</h3></a>
       </div>
@@ -21,3 +23,16 @@
     </div>
   </div>
 </article>
+
+<div class="toggle hide" id="menu-toggle">
+</div>
+<nav id="nav" class="mobile-hide">
+  <div class="years">
+    {{#each allYears}}
+    <div class="nav-item">
+      <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
+      </p>
+    </div>
+    {{/each}}
+  </div>
+</nav>

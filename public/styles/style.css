@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
+  background: #eee;
 }
 
 h1 {
@@ -13,13 +14,14 @@ h1 {
 
 h2 {
   font-weight: 100;
+  padding: 0.5em 0;
+  margin: 0;
 }
 
 /*Reusable classes*/
 .standard-container {
   padding: 0 5vw;
   width: 100vw;
-  height: 90vh;
   box-sizing: border-box;
 }
 
@@ -30,12 +32,12 @@ h2 {
   grid-template-rows: max-content 1fr;
 }
 
-.flex-row {
+.grid-row {
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 20%;
+  grid-gap: 1em;
+  padding-top: 2em;
 }
 
 .capitalize {
@@ -102,27 +104,6 @@ h2 {
 }
 
 /*Course types*/
-.sort {
-  display: grid;
-  grid-template-columns: minmax(15em, 20em) minmax(20em, 25em);
-  margin: 0 auto;
-  justify-content: center;
-  background: #A6D5C2;
-  color: white;
-}
-
-.course-block {
-  padding: 1em;
-}
-
-.sort-title {
-  margin: 0;
-  padding-bottom: 0.3em;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-align: center;
-}
-
 .course-types {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -166,6 +147,11 @@ h2 {
   background: #B61C3E;
   border: #B61C3E 0.1em solid;
   transition: 0.3s;
+}
+
+.course-detail {
+  padding: 1em;
+  background: white;
 }
 
 .year {
@@ -215,17 +201,7 @@ h2 {
 }
 
 /*[Course page]*/
-
-.course-detail {
-  margin-right: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  width: 70%;
-}
-
 .image {
-  width: 50%;
   max-height: 40vh;
   overflow: hidden;
   flex-grow: 1;
@@ -236,10 +212,6 @@ h2 {
 }
 
 .course-description {
-  width: 50%;
-  flex-grow: 1;
-  min-width: 22em;
-  padding-left: 1em;
   box-sizing: border-box;
 }
 
@@ -248,9 +220,10 @@ h2 {
 }
 
 .suggestions {
-  width: 20%;
   flex-grow: 1;
-  min-width: 13em;
+  padding: 1em;
+  background: white;
+  height: max-content;
 }
 
 .suggestions h3 {
@@ -258,7 +231,8 @@ h2 {
 }
 
 .course-suggestion {
-  height: 9em;
+  height: 9vw;
+  margin-top: .5em;
 }
 
 /* INITIAL PAGE FOR YEAR  */
@@ -468,6 +442,15 @@ nav img {
   }
 }
 
+@media (max-width: 885px) {
+  .grid-row {
+    grid-template-columns: 1fr;
+  }
+  .suggestions {
+    margin-bottom: 10em;
+  }
+}
+
 @media (max-width: 600px) {
   .toggle {
     display: block;
@@ -488,5 +471,8 @@ nav img {
 
   .year-description {
     padding-bottom: 0;
+  }
+  .suggestions {
+    margin-bottom: 1em;
   }
 }
