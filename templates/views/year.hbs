@@ -7,18 +7,24 @@
       <div class="header-blok1">
         <h2>Blok 1</h2>
       </div>
+
       {{#each course}}
-        {{#ifeq blok 'blok-1'}}
-          {{#ifeq category 'project'}}
-            <div class="project-item course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-            {{else}}
-            <div class="vak course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
+        {{#each blok}}
+          <p>{{title}}</p>
+        {{/each}}
+          {{#ifeq blok 'blok-1'}}
+            {{#each courseType}}
+              {{#ifeq category 'project'}}
+                <div class="project-item course">
+                  <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
+                </div>
+                {{else}}
+                <div class="vak course">
+                  <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
+                </div>
+              {{/ifeq}}
+            {{/each}}
           {{/ifeq}}
-        {{/ifeq}}
       {{/each}}
     </div>
     <div class="blok2 blokken">
