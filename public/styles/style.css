@@ -443,19 +443,19 @@ svg {
   margin-top: 3em;
   }
 
-  .filter-item {
-    z-index: 999;
-    cursor: pointer;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 0.1em;
-    text-align: center;
-    height: 1em;
-  }
+.filter-item {
+  z-index: 999;
+  cursor: pointer;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  height: 1em;
+}
 
 .filter img {
   height: 2em;
@@ -598,6 +598,9 @@ nav img {
   .mobile-hide {
     opacity: 0;
     z-index: 0;
+  }
+  .column-grid{
+    z-index: 1;
   }
   nav {
     height: 100%;
