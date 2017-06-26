@@ -532,6 +532,7 @@ nav img {
 .toggle {
   width: 2em;
   height: 2em;
+  cursor: pointer;
   background: #FFCC00;
   background-image: url(/images/menu.svg);
   position: fixed;

@@ -11,7 +11,14 @@ menuToggle.addEventListener('click', function(e) {
   } else {
     nav.classList.add('mobile-hide')
   }
-  console.log('click');
+})
+
+menuToggle.addEventListener('ontouchend', function(e) {
+  if (nav.classList.contains('mobile-hide')) {
+    nav.classList.remove('mobile-hide');
+  } else {
+    nav.classList.add('mobile-hide')
+  }
 })
 
 filterToggle.addEventListener('click', function(e){
