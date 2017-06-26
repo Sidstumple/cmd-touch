@@ -400,14 +400,7 @@ svg {
   margin-bottom: 0.5em;
 }
 
-/*Navigation*/
-nav {
-  background: #FFCC00;
-  width: 100%;
-  bottom: 0;
-  position: fixed;
-  z-index: 998;
-}
+/*FILTER*/
 
 .filter {
   display: grid;
@@ -502,7 +495,21 @@ nav {
   margin-left: 12em;
 }
 
+/*Navigation*/
+nav {
+  background: #FFCC00;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  z-index: 998;
+}
+
 .years {
+  /*flex layout*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /*grid layout*/
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   justify-items: center;
@@ -590,10 +597,11 @@ nav img {
     z-index: 999;
   }
   .mobile-hide {
-    display: none;
+    opacity: 0;
   }
   nav {
     height: 100%;
+    width: 100%;
   }
   .filter {
     padding-top: 2em;
