@@ -554,6 +554,7 @@ nav img {
   }
   .filter-title {
     margin-left: 11em;
+    width: 9em;
   }
   .filter-toggled .filter-title {
     margin-left: 12em;
