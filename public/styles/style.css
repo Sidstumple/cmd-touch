@@ -597,6 +597,7 @@ nav img {
   }
   .mobile-hide {
     opacity: 0;
+    z-index: 0;
   }
   nav {
     height: 100%;
