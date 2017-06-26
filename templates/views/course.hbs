@@ -23,7 +23,6 @@
       <h3>Vergelijkbare vakken:</h3>
       {{#each data.courseType}}
       <div class="course course-suggestion {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
-
         <a href="{{slug}}"><h3>{{title}}</h3></a>
       </div>
       {{/each}}

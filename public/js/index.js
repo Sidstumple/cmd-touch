@@ -2,7 +2,7 @@ var menuToggle = document.getElementById('menu-toggle');
 var nav = document.getElementById('nav');
 var filterToggle = document.getElementById('filter');
 var filters = document.querySelectorAll('.filter-item');
-
+var closeFilters = document.getElementById('closeFilters');
 
 // Show menu when clicked
 menuToggle.addEventListener('click', function(e) {
@@ -21,6 +21,10 @@ filterToggle.addEventListener('click', function(e){
   }
 })
 
+closeFilters.addEventListener('click', function(e) {
+  console.log('click');
+  filterToggle.parentNode.classList.remove('filter-toggled');
+})
 
 // Throw some spotlight on clicked course types
 filters.forEach(function(f) {

@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
 
   view.query('course', keystone.list('Course').model.find({
     year: locals.filters.year
-  }).populate('courseType'));
+  }).populate({path: 'courseType connectedCourses', populate: {path: 'courseType', model: 'CourseType'}}));
 
   // Render view
   view.render('year');

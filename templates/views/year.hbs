@@ -8,8 +8,8 @@
     </div>
   </div>
   <div class="content">
-    <article class="standard-container filter-margin">
-      <h2>{{year.title}}</h2>
+    <article class="standard-container filter-margin" id="closeFilters">
+      <h2 class='year-title'>{{year.title}}</h2>
       <div class="column-grid">
 
         <div class="blok1 blokken">
@@ -21,9 +21,18 @@
           </div>
           {{#each course}}
           {{#ifeq blok 'blok-1'}}
-          <div class="course {{#each courseType}} {{slug}}{{/each}}">
-            <a href="{{year}}/vak/{{slug}}">{{title}}</a>
-          </div>
+            {{#ifeq type 'project'}}
+            <div class="vakken">
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{#each connectedCourses}}
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{/each}}
+            </div>
+            {{/ifeq}}
           {{/ifeq}}
           {{/each}}
         </div>
@@ -38,9 +47,18 @@
           </div>
           {{#each course}}
           {{#ifeq blok 'blok-2'}}
-          <div class="course {{#each courseType}} {{slug}}{{/each}} {{blok}}">
-            <a href="{{year}}/vak/{{slug}}">{{title}}</a>
-          </div>
+            {{#ifeq type 'project'}}
+            <div class="vakken">
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{#each connectedCourses}}
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{/each}}
+            </div>
+            {{/ifeq}}
           {{/ifeq}}
           {{/each}}
         </div>
@@ -53,9 +71,18 @@
           </div>
           {{#each course}}
           {{#ifeq blok 'blok-3'}}
-          <div class="course {{#each courseType}} {{slug}}{{/each}}">
-            <a href="{{year}}/vak/{{slug}}">{{title}}</a>
-          </div>
+            {{#ifeq type 'project'}}
+            <div class="vakken">
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{#each connectedCourses}}
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{/each}}
+            </div>
+            {{/ifeq}}
           {{/ifeq}}
           {{/each}}
         </div>
@@ -68,20 +95,54 @@
           </div>
           {{#each course}}
           {{#ifeq blok 'blok-4'}}
-          <div class="course {{#each courseType}} {{slug}}{{/each}}">
-            <a href="{{year}}/vak/{{slug}}">{{title}}</a>
-          </div>
+            {{#ifeq type 'project'}}
+              <div class="vakken">
+                <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                  <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+                </div>
+                {{#each connectedCourses}}
+                <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                  <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+                </div>
+                {{/each}}
+              </div>
+            {{/ifeq}}
+            {{!--Check for internships--}}
+            {{#ifeq type 'stage'}}
+            <div class="course {{#each courseType}} {{slug}}{{/each}}">
+              <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+            </div>
+            {{/ifeq}}
+
+            {{!--Check if there are profileringsvakken--}}
+            {{#ifeq type 'profilering'}}
+            <div>
+              <p>* Profileringsvakken:</p>
+              {{#each connectedCourses}}
+              <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+              </div>
+              {{/each}}
+            </div>
+            {{/ifeq}}
           {{/ifeq}}
           {{/each}}
         </div>
       </div>
 
+      <p class="legenda-title">Legenda:</p>
       <div class="legenda">
         <div class="projecten project course">
           <p>Projecten</p>
         </div>
         <div class="kernvakken course">
           <p>Kernvakken</p>
+        </div>
+        <div class="profilering keuzevak course">
+          <p>Profileringsvakken</p>
+        </div>
+        <div class="course stages stage">
+          <p>Stage</p>
         </div>
       </div>
       <p class="year-description columns">{{year.description}}</p>

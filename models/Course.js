@@ -13,9 +13,11 @@ Course.add({
   image: {type: Types.CloudinaryImage},
   embeddedVideo: {type: Types.Html, wysiwyg: false, height: 40},
   description: {type: Types.Html, wysiwyg: false, height: 400},
-  year: {type: Types.Select, options: 'propedeuse, jaar-1, jaar-2, afstuderen', default: 'propedeuse'},
+  type: {type: Types.Select, options: 'project, vak, stage, profilering', default: 'vak'},
+  year: {type: Types.Select, options: 'propedeuse, jaar-2, jaar-3, afstuderen', default: 'propedeuse'},
   blok: {type: Types.Select, options: 'blok-1, blok-2, blok-3, blok-4, semester-1, semester-2', default: 'blok-1'},
-  courseType: {type: Types.Relationship, label: 'Course type', ref: 'CourseType', many: true}
+  courseType: {type: Types.Relationship, label: 'Course type', ref: 'CourseType', many: true},
+  connectedCourses: {type: Types.Relationship, label: 'Connected Courses', ref: 'Course', many: true}
 });
 
 Course.register();

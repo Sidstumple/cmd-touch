@@ -166,18 +166,15 @@ h2 {
   justify-content: center;
 }
 
+.year-title {
+  text-align: center;
+}
+
 .blokken {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 0.5em;
   align-content: start;
-}
-
-.course {
-  height: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .blok-title {
@@ -186,6 +183,12 @@ h2 {
   color: white;
   text-align: center;
   padding: 0.2em;
+  margin-top: 0.5em;
+}
+
+.blok-title h2 {
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .blok-title p, .blok-title h2 {
@@ -193,7 +196,17 @@ h2 {
   margin: 0;
 }
 
+.vakken {
+  display: flex;
+  flex-direction: column;
+}
+
 .course {
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
   order: 2;
   background: black;
   box-sizing: border-box;
@@ -217,7 +230,14 @@ h2 {
   text-align: center;
 }
 
+.keuzevak {
+  background-color: #666;
+  height: 1.2em;
+  margin-bottom: 0.2em;
+}
+
 .project {
+  height: 2em;
   order: 1;
   background-color: #FFCC00;
   box-sizing: border-box;
@@ -230,11 +250,16 @@ h2 {
   width: 100%;
   height: 100%;
   color: black;
-
 }
 
-.svg {
-  width: 100%;
+.stage {
+  background-color: #EB5D56;
+  order: 0;
+  color: black;
+}
+
+.stage a {
+  color: black;
 }
 
 svg {
@@ -242,8 +267,13 @@ svg {
 }
 
 /*Legenda*/
+.legenda-title {
+  margin: 0;
+}
+
 .legenda {
-  margin-top: 1em;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .legenda div {
@@ -257,13 +287,19 @@ svg {
   margin: 0;
 }
 
-.projecten, .kernvakken {
-  height: 3em;
+.projecten, .kernvakken, .profilering, .stages {
+  order: 1;
+  height: 2em;
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-align: center;
-  width: 10em;
+  width: 15em;
+  margin-right: 1em;
+}
+
+.profilering {
+  color: white
 }
 
 .kernvakken {
@@ -272,11 +308,8 @@ svg {
 
 .blokken .spotlight {
   animation: spotlight 1s ease-in-out;
-  background-color: #A6D5C2;
-}
-
-.spotlight a {
-  color: black;
+  border-top: 0.3em solid #009B8F;
+  background-position: 0.2em 0;
 }
 
 @keyframes spotlight{
@@ -488,7 +521,6 @@ svg {
 
 .filter-toggled {
   margin: 0;
-  animation: none;
 }
 
 .filter-toggled .filter-title {
@@ -556,6 +588,9 @@ nav img {
     z-index: 998;
     width: 13em;
     margin-left: -12em;
+  }
+  nav {
+    z-index: 999;
   }
   .filter-toggled {
     margin-left: 0;
