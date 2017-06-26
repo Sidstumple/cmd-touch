@@ -587,7 +587,7 @@ nav img {
     margin-bottom: 10em;
   }
   .filter-margin {
-    margin-left: 2em;
+    padding-left: 2em;
   }
 }
 
