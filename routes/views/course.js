@@ -24,7 +24,7 @@ exports = module.exports = function(req, res) {
 
   view.query('course', keystone.list('Course').model.findOne({
     slug: locals.filters.course
-  }));
+  }).populate('courseType'));
 
   view.query('allYears', keystone.list('Curriculum').model.find());
 

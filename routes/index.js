@@ -39,7 +39,7 @@ exports = module.exports = function (app) {
 	});
 	app.get('/curriculum', routes.views.curriculum);
 	app.get('/curriculum/:year', routes.views.year);
-	app.get('/curriculum/:year/:courseType/:course', routes.views.course);
+	app.get('/curriculum/:year/vak/:course', routes.views.course);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

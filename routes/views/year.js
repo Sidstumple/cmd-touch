@@ -18,21 +18,9 @@ exports = module.exports = function(req, res) {
 
   view.query('courseType', keystone.list('CourseType').model.find());
 
-  view.query('course', keystone.list('Course').model.find().populate({
-    path: 'year blok courseType',
-    match: {year: locals.filters.year}
-  }));
-
-  view.on('init', function(next) {
-    var q = keystone.list('Course').model.find().populate({path: 'year blok courseType', match: {year: locals.filters.year}});
-    q.exec(function(err, result) {
-      console.log(result);
-      next(err)
-    })
-  })
-
-
-
+  view.query('course', keystone.list('Course').model.find({
+    year: locals.filters.year
+  }).populate('courseType'));
 
   // Render view
   view.render('year');

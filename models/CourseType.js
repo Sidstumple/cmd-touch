@@ -10,7 +10,7 @@ var CourseType = new keystone.List('CourseType', {
 
 CourseType.add({
   title: {type: String, required: true},
-  image: {type: Types.CloudinaryImage},
+  image: {type: Types.CloudinaryImage}
 });
 
 CourseType.register();

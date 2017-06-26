@@ -3,12 +3,18 @@
     <div class="course-info">
       <div class="course-detail">
         <div class="image">
+          {{#ifeq course.image '{}'}}
+          <img src="/images/cmd_beeldbank.jpg" alt="CMD Sfeerbeeld" class="course-image">
+          {{else if embeddedVideo}}
+          {{embeddedVideo}}
+          {{else}}
           <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
+          {{/ifeq}}
         </div>
         <div class="course-description">
           <h2>{{course.title}}</h2>
-          <p>{{course.description}}</p>
-          <p class="capitalize">{{course.year}} | {{course.blok}} | {{course.category}}</p>
+          <p class="columns">{{course.description}}</p>
+          <div class="capitalize meta"><p>{{course.year}} | {{course.blok}} </p> <div class="course-tags">{{#each course.courseType}} <div class="coursetype-tag">{{title}} </div>{{/each}}</div></div>
         </div>
       </div>
     </div>
@@ -16,7 +22,8 @@
     <div class="suggestions">
       <h3>Vergelijkbare vakken:</h3>
       {{#each data.courseType}}
-      <div class="course course-suggestion {{slug}}" style="background-image: url({{cloudinaryUrl image}})">
+      <div class="course course-suggestion {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
+
         <a href="{{slug}}"><h3>{{title}}</h3></a>
       </div>
       {{/each}}

@@ -1,115 +1,104 @@
-<article class="standard-container">
-
-  <h2>{{year.title}}</h2>
-
-  <div class="column-grid">
-    <div class="blok1 blokken">
-      <div class="header-blok1">
-        <h2>Blok 1</h2>
-      </div>
-
-      {{#each course}}
-        {{#each blok}}
-          <p>{{title}}</p>
-        {{/each}}
-          {{#ifeq blok 'blok-1'}}
-            {{#each courseType}}
-              {{#ifeq category 'project'}}
-                <div class="project-item course">
-                  <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-                </div>
-                {{else}}
-                <div class="vak course">
-                  <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-                </div>
-              {{/ifeq}}
-            {{/each}}
-          {{/ifeq}}
-      {{/each}}
-    </div>
-    <div class="blok2 blokken">
-      <div class="header-blok2">
-        <h2>Blok 2</h2>
-      </div>
-      {{#each course}}
-        {{#ifeq blok 'blok-2'}}
-          {{#ifeq category 'project'}}
-            <div class="project-item course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-            {{else}}
-            <div class="vak course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-          {{/ifeq}}
-        {{/ifeq}}
-      {{/each}}
-    </div>
-    <div class="blok3 blokken">
-      <div class="header-blok3">
-        <h2>Blok 3</h2>
-      </div>
-      {{#each course}}
-        {{#ifeq blok 'blok-3'}}
-          {{#ifeq category 'project'}}
-            <div class="project-item course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-            {{else}}
-            <div class="vak course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-          {{/ifeq}}
-        {{/ifeq}}
-      {{/each}}
-    </div>
-    <div class="blok4 blokken">
-      <div class="header-blok4">
-        <h2>Blok 4</h2>
-      </div>
-      {{#each course}}
-        {{#ifeq blok 'blok-4'}}
-          {{#ifeq category 'project'}}
-            <div class="project-item course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-            {{else}}
-            <div class="vak course">
-              <a href="{{year}}/{{category}}/{{slug}}" class="{{category}}">{{title}}</a>
-            </div>
-          {{/ifeq}}
-        {{/ifeq}}
-      {{/each}}
-    </div>
-  </div>
-
-  <div class="legenda">
-    <div class="projecten project-item">
-      <p>Projecten</p>
-    </div>
-    <div class="kernvakken vak">
-      <p>Kernvakken</p>
-    </div>
-  </div>
-  <p class="year-description">{{year.description}}</p>
-</article>
-
-
-
-<div class="toggle hide" id="menu-toggle">
-</div>
-<nav id="nav" class="mobile-hide">
+<div class="sidebar-layout">
   <div class="filter">
-    {{#each courseType}}
-    <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
-    {{/each}}
-  </div>
-  <div class="years">
-    {{#each allYears}}
-    <div class="nav-item">
-      <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
-      </p>
+    <p class="filter-title" id="filter">Filter vakken</p>
+    <div class="filter-items">
+      {{#each courseType}}
+      <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+      {{/each}}
     </div>
-    {{/each}}
   </div>
-</nav>
+  <article class="standard-container filter-margin">
+    <h2>{{year.title}}</h2>
+    <div class="column-grid">
+
+      <div class="blok1 blokken">
+        <div class="header-blok1">
+          <div class="blok-title">
+            <h2>Blok 1</h2>
+            <p>September - november</p>
+          </div>
+        </div>
+        {{#each course}}
+        {{#ifeq blok 'blok-1'}}
+        <div class="course {{#each courseType}} {{slug}}{{/each}}">
+          <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+        </div>
+        {{/ifeq}}
+        {{/each}}
+      </div>
+
+
+      <div class="blok2 blokken">
+        <div class="header-blok2">
+          <div class="blok-title">
+            <h2>Blok 2</h2>
+            <p>November - januari</p>
+          </div>
+        </div>
+        {{#each course}}
+        {{#ifeq blok 'blok-2'}}
+        <div class="course {{#each courseType}} {{slug}}{{/each}} {{blok}}">
+          <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+        </div>
+        {{/ifeq}}
+        {{/each}}
+      </div>
+      <div class="blok3 blokken">
+        <div class="header-blok3">
+          <div class="blok-title">
+            <h2>Blok 3</h2>
+            <p>Januari - april</p>
+          </div>
+        </div>
+        {{#each course}}
+        {{#ifeq blok 'blok-3'}}
+        <div class="course {{#each courseType}} {{slug}}{{/each}}">
+          <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+        </div>
+        {{/ifeq}}
+        {{/each}}
+      </div>
+      <div class="blok4 blokken">
+        <div class="header-blok4">
+          <div class="blok-title">
+            <h2>Blok 4</h2>
+            <p>April - juni</p>
+          </div>
+        </div>
+        {{#each course}}
+        {{#ifeq blok 'blok-4'}}
+        <div class="course {{#each courseType}} {{slug}}{{/each}}">
+          <a href="{{year}}/vak/{{slug}}">{{title}}</a>
+        </div>
+        {{/ifeq}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="legenda">
+      <div class="projecten project course">
+        <p>Projecten</p>
+      </div>
+      <div class="kernvakken course">
+        <p>Kernvakken</p>
+      </div>
+    </div>
+    <p class="year-description columns">{{year.description}}</p>
+  </article>
+
+
+
+  <div class="toggle hide" id="menu-toggle">
+  </div>
+  <nav id="nav" class="mobile-hide">
+    <div class="years">
+      {{#each allYears}}
+      <div class="nav-item">
+        <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
+        </p>
+      </div>
+      {{/each}}
+    </div>
+  </nav>
+
+</div>
