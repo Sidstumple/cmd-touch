@@ -544,19 +544,19 @@ nav img {
 
 @media (max-width: 1259px) {
   .filter {
-      position: fixed;
-      z-index: 998;
-      width: 13em;
-      margin-left: -12em;
+    position: fixed;
+    z-index: 998;
+    width: 13em;
+    margin-left: -12em;
   }
   .filter-toggled {
     margin-left: 0;
   }
   .filter-title {
-    margin-left: 10em;
+    margin-left: 11em;
   }
   .filter-toggled .filter-title {
-    margin-left: 11em;
+    margin-left: 12em;
   }
 }
 
