@@ -406,6 +406,7 @@ nav {
   width: 100%;
   bottom: 0;
   position: fixed;
+  z-index: 998;
 }
 
 .filter {
@@ -432,7 +433,7 @@ nav {
   margin: 0;
   margin-left: 13em;
   margin-top: 4.5em;
-  width: max-content;
+  width: 9em;
   background: #a6d5c2;
   padding: 0.5em;
   text-transform: uppercase;
