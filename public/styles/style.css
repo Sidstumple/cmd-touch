@@ -476,7 +476,7 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 50%;
+  height: 100%;
   align-items: flex-start;
   margin-top: 3em;
   }
