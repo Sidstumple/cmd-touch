@@ -25,7 +25,7 @@ h2 {
 
 .standard-container {
   padding: 0 5vw;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -56,6 +56,10 @@ h2 {
 .columns {
   columns: 20em 2;
   column-gap: 1.5em;
+}
+
+.content {
+  width: 100%;
 }
 /*End reusable classes*/
 
