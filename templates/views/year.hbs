@@ -1,11 +1,11 @@
 <div class="sidebar-layout">
   <div class="filter">
-    <p class="filter-title" id="filter">Filter vakken</p>
     <div class="filter-items">
       {{#each courseType}}
       <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
       {{/each}}
     </div>
+    <p class="filter-title" id="filter">Filter vakken</p>
   </div>
   <div class="content">
     <article class="standard-container filter-margin" id="closeFilters">
@@ -154,6 +154,9 @@
 </div>
 <nav id="nav" class="mobile-hide">
   <div class="years">
+    <div class="nav-item">
+      <p onclick="history.back()"><img src="/images/terug.svg" alt="CMD icon">Terug</p>
+    </div>
     {{#each allYears}}
     <div class="nav-item">
       <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>

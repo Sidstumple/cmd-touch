@@ -20,7 +20,7 @@
     </div>
 
     <div class="suggestions">
-      <h3>Vergelijkbare vakken:</h3>
+      <h3>Bekijk ook deze vakken:</h3>
       {{#each data.courseType}}
       <div class="course course-suggestion {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
         <a href="{{slug}}"><h3>{{title}}</h3></a>
@@ -34,6 +34,9 @@
 </div>
 <nav id="nav" class="mobile-hide">
   <div class="years">
+    <div class="nav-item">
+      <p onclick="history.back()"><img src="/images/terug.svg" alt="CMD icon">Terug</p>
+    </div>
     {{#each allYears}}
     <div class="nav-item">
       <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>

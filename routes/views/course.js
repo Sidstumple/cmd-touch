@@ -14,7 +14,9 @@ exports = module.exports = function(req, res) {
   };
 
   locals.data = {
-    courseType: []
+    courseType: [],
+    types: [],
+    filtered: []
   };
 
   // Load curriculum
@@ -36,40 +38,51 @@ exports = module.exports = function(req, res) {
   course.exec(function(err, result) {
     result.courseType.forEach(function(course) {
       var slug = course.slug;
+      // console.log(slug);
       locals.filters.courseType.push(slug);
     })
-    // console.log(locals.filters.courseType[0]);
   })
 
   //  create semi random suggestions based on category
     var courseType = keystone.list('Course').model.find().populate({
       path: 'courseType',
-      match: {
-        slug: 'design'
-      }
+      model: 'CourseType',
     });
-
     courseType.exec(function(err, result) {
-      console.log(result.length);
-      console.log(result);
-      var suggestions = []
+    //   result.map(function(course) {
+    //   course.courseType.map(function(type) {
+    //     var types = type.slug;
+    //     locals.data.courseType.push(types);
+    //   });
+    //   var allTypes = course.courseType;
+    //   var savedTypes = locals.filters.courseType;
+    //
+    //   var filteredArray = allTypes.filter(function(el){
+    //     return savedTypes.indexOf(el) == 0;
+    //   });
+    //   locals.data.types = filteredArray;
+    // })
+    //
+    //   console.log(locals.data.types);
+      
+      var suggestions = [];
       while(suggestions.length < 4){
         var randomnumber = Math.ceil(Math.random() * result.length)
         if(suggestions.indexOf(randomnumber) > -1) continue;
         suggestions[suggestions.length] = randomnumber;
       }
 
-      for(i = 0; i < suggestions.length; i++) {
-        if (result[suggestions[i]] !== undefined) {
-          var courseSuggestions = result[suggestions[i]];
-          locals.data.courseType.push(courseSuggestions);
+        for(i = 0; i < suggestions.length; i++) {
+          if (result[suggestions[i]] !== undefined) {
+            var courseSuggestions = result[suggestions[i]];
+            locals.data.courseType.push(courseSuggestions);
+          }
+          else {
+            // console.log('undefined');
+          }
         }
-        else {
-          console.log('undefined');
-        }
-      }
-      //  console.log(locals.data.courseType);
-    })
+        //  console.log(locals.data.courseType);
+      })
 
   // Render view
   view.render('course');

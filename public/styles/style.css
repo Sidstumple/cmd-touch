@@ -278,6 +278,7 @@ svg {
 .legenda {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .legenda div {
@@ -456,12 +457,12 @@ svg {
 }
 
 .filter-title {
-  position: absolute;
+  position: relative;
   cursor: pointer;
   transform: rotate(90deg);
   height: 5em;
   margin: 0;
-  margin-left: 13em;
+  margin-left: 12em;
   margin-top: 4.5em;
   width: 9em;
   background: #a6d5c2;
@@ -528,7 +529,7 @@ svg {
 }
 
 .filter-toggled .filter-title {
-  margin-left: 12em;
+  margin-left: 9em;
 }
 
 /*Navigation*/
@@ -550,17 +551,27 @@ nav {
   justify-items: center;
 }
 
-nav a {
+.nav-item:first-of-type {
+  cursor: pointer;
+  background: #EB5D56;
+  width: 24vw;
+}
+
+nav a, nav p {
   text-decoration: none;
   color: black;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 1em;
   letter-spacing: 0.1em;
   text-align: center;
 }
 
-.nav-item a {
+nav p {
+  font-size: 0.8em;
+}
+
+.nav-item p, .nav-item a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -586,7 +597,7 @@ nav img {
 }
 
 
-@media (max-width: 1259px) {
+@media (max-width: 74.1em) {
   .filter {
     position: fixed;
     z-index: 998;
@@ -600,15 +611,12 @@ nav img {
     margin-left: 0;
   }
   .filter-title {
-    margin-left: 11em;
+    margin-left: 9em;
     width: 9em;
-  }
-  .filter-toggled .filter-title {
-    margin-left: 12em;
   }
 }
 
-@media (max-width: 1022px) {
+@media (max-width: 60.1em) {
   .year-description {
     padding-bottom: 20em;
   }
@@ -617,7 +625,7 @@ nav img {
   }
 }
 
-@media (max-width: 885px) {
+@media (max-width: 52.1em) {
   .grid-row {
     grid-template-columns: 1fr;
   }
@@ -625,11 +633,20 @@ nav img {
     margin-bottom: 10em;
   }
   .filter-margin {
-    padding-left: 2em;
+    padding-left: 4em;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 47em) {
+  .nav-item:first-of-type {
+    width: 26vw
+  }
+}
+
+@media (max-width: 35.3em) {
+  .filter {
+    height: 100%
+  }
   .toggle {
     display: block;
     z-index: 999;
@@ -641,9 +658,6 @@ nav img {
   }
   .mobile-hide {
     display: none;
-  }
-  .filter {
-    padding-top: 2em;
   }
   .years, .filter {
     grid-template-columns: 1fr;
@@ -662,5 +676,12 @@ nav img {
   .curriculum a {
     background-size: 8vh;
     font-size: 3vh;
+  }
+  .columns {
+    columns: 1em 1;
+    width: 69vw;
+  }
+  .filter-title {
+    margin-left: 8em;
   }
 }
