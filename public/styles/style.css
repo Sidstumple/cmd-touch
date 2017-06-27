@@ -684,4 +684,7 @@ nav img {
   .filter-title {
     margin-left: 8em;
   }
+  .back {
+    display: none;
+  }
 }
