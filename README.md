@@ -12,8 +12,8 @@ To tackle the challenge of making the website easy to maintain for the administr
 KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
 
 ## Performance Matters
-If at an open day the internet disconnects suddenly the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a before and after of the loading time:
-!()[without service worker] !()[with service worker]
+If at an open day the internet disconnects suddenly the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time:
+!(screenshots/nosw.gif)[without service worker] !(screenshots/sw.gif)[with service worker]
 
 
 ## MOSCOW
