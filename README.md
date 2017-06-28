@@ -14,7 +14,7 @@ Repository for the end assignment of the minor Web Development at the University
 10. [MOSCOW](#moscow)
 11. [Dependencies](#dependencies)
 12. [Install](#install)
-
+13. [Wishlist](#wishlist)
 ## Live link
 http://cmd-touch.herokuapp.com/
 
@@ -176,3 +176,14 @@ MONGO_URI
 5. run `node keystone`
 6. open http://localhost:3000/curriculum for the frontend and http://localhost:3000/keystone to edit the backend.
 7. For login credentials send an email to info@cydstumpel.nl
+
+## [Wishlist](#wishlist)
+- [ ] Suggestions on detail page based on course types of current course
+- [ ] Manual for the backend
+- [ ] Minifying
+- [ ] Skeleton loading
+- [ ] Better feedback method for when a filter doesn't match any course on a page
+- [ ] More progressive enhancement, i.e. making it available on browsers that don't support Flexbox
+- [ ] More, useful animations
+- [ ] Data model
+
