@@ -108,6 +108,21 @@ It is also possible to add filters inside the find function like this:
 ```
 This will make sure only data that has a slug that matches the params from the url. For example if the url was `cmd-touch.nl/curriculum/propedeuse` only data with the slug propedeuse will be selected.
 
+## Handlebars
+Keystone uses handlebars as a view engine, queries from `/routes/views` can be used in the folder `/templates/views` like this:
+```javascript
+<div class="grid-container">
+  <h1>Bekijk het CMD curriculum per jaar:</h1>
+
+  <div class="curricula">
+    {{# each curriculum}} // loop through all objects in curriculum
+    <div class="curriculum">
+      <h2><a href="{{yearUrl slug}}" class="{{slug}}" style="background-image: url({{cloudinaryUrl image}})">{{title}}</a></h2>
+    </div>
+    {{/each}}
+  </div>
+</div>
+```
 
 ## MOSCOW
 ### Must haves:
