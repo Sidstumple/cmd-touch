@@ -13,6 +13,7 @@ KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoD
 
 ## Performance Matters
 If at an open day the internet disconnects suddenly the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time:
+
 ![without service worker](screenshots/nosw.gif) ![with service worker](screenshots/sw.gif)
 
 
