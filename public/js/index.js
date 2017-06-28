@@ -1,3 +1,15 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
 var menuToggle = document.getElementById('menu-toggle');
 var nav = document.getElementById('nav');
 var filterToggle = document.getElementById('filter');
@@ -22,8 +34,6 @@ filterToggle.addEventListener('click', function(e){
 })
 
 closeFilters.addEventListener('click', function(e) {
-  console.log('click');
-  console.log(filterToggle.parentNode);
   filterToggle.parentNode.classList.remove('filter-toggled');
 })
 

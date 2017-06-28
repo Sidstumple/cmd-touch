@@ -38,16 +38,5 @@
 
 <div class="toggle hide" id="menu-toggle">
 </div>
-<nav id="nav" class="mobile-hide">
-  <div class="years">
-    <div class="nav-item back">
-      <p onclick="history.back()"><img src="/images/terug.svg" alt="CMD icon">Terug</p>
-    </div>
-    {{#each allYears}}
-    <div class="nav-item">
-      <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
-      </p>
-    </div>
-    {{/each}}
-  </div>
-</nav>
+
+{{> nav}}

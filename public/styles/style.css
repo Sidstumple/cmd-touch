@@ -33,7 +33,9 @@ h2 {
 .grid-container {
   display: grid;
   grid-template-rows: max-content 1fr;
+  height: 100vh;
 }
+
 .grid-row {
   display: grid;
   grid-template-columns: 1fr 25%;
@@ -659,8 +661,8 @@ nav img {
     display: none;
   }
 }
-
-@supports (display: flex) and (not (display: grid)) {
+/*If browser does not support grid*/
+@supports (not (display: grid)) {
   .grid-container {
     display flex;
     flex-direction: row;

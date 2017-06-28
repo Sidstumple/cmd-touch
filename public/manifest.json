@@ -1,0 +1,16 @@
+{
+  "short_name": "CMD touch",
+  "name": "CMD touch website",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FFCC00",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "/images/back.svg",
+      "sizes": "160x180",
+      "type": "image/jpg"
+    }
+  ]
+}
