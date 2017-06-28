@@ -13,7 +13,7 @@ var handlebars = require('express-handlebars');
 keystone.init({
 	'name': 'CMD Touch',
 	'brand': 'CMD Touch',
-	// 'port': 8080,
+	'port': 8080,
 
 	'sass': 'public',
 	'static': 'public',
