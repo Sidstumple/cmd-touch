@@ -2,15 +2,21 @@
   <div class="grid-row">
     <div class="course-info">
       <div class="course-detail">
-        <div class="image">
-          {{#ifeq course.image '{}'}}
-          <img src="/images/cmd_beeldbank.jpg" alt="CMD Sfeerbeeld" class="course-image">
-          {{else if embeddedVideo}}
-          {{embeddedVideo}}
-          {{else}}
-          <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
-          {{/ifeq}}
-        </div>
+        {{#ifCond course.embeddedVideo '!=' ' '}}
+          <div class="video">
+            {{{course.embeddedVideo}}}
+          </div>
+        {{/ifCond}}
+        {{#ifCond course.image '!=' '{}'}}
+          <div class="image">
+            <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
+          </div>
+        {{/ifCond}}
+        {{#ifCond course.image '==' '{}'}}
+          <div class="image">
+            <img src="/images/cmd_beeldbank.jpg" alt="CMD Sfeerbeeld" class="course-image">
+          </div>
+        {{/ifCond}}
         <div class="course-description">
           <h2>{{course.title}}</h2>
           <p class="columns">{{course.description}}</p>
