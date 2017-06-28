@@ -15,11 +15,6 @@ The open days of the study Communication & Multimedia Design (CMD) at the Univer
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
 KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
 
-## Filter by course type
-Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
-![filters](screenshots/filters.gif) 
-
-
 ## Web App From Scratch
 This website has a [code guideline](/code-styleguide.md) to make sure all code is comprehensible and follows the same structure.
 
@@ -49,6 +44,11 @@ With service worker:
 
 ## Browser Technology
 I have optimized this website for all browsers that at least support Flexbox. The touchscreen that is used at the open day is connected to a laptop, the website should be opened in a browser that at least supports Flexbox. For an even better experience the website should be opened in a browser that supports CSS Grid. The website is also accessible outside the open days, but it should be expected from a potential student that wishes to study CMD that they use a modern browser. Also; most browsers have supported Flexbox since 2014.
+
+## Filter by course type
+Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
+
+![filters](screenshots/filters.gif) 
 
 ## Models
 Keystone works with models, the models are declared in the folder `/models` and look like this:
