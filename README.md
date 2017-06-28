@@ -11,8 +11,14 @@ The open days of the study Communication & Multimedia Design (CMD) at the Univer
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
 KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
 
+## Web App From Scratch
+This website has a [code guideline](/code-styleguide.md) to make sure all code is comprehensible and follows the same structure.
+
+## CSS to the Rescue
+I used the relatively new CSS Grid layout for most elements. CSS Grid is very responsive and doesn't need a lot of code lines. To make sure older browsers are also supported I used CSS flexbox.
+
 ## Performance Matters
-If at an open day the internet disconnects suddenly the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time on Good 3G network speed:
+If the internet disconnects suddenly at an open day the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time on Good 3G network speed:
 
 
 Without service worker:
@@ -22,6 +28,7 @@ Without service worker:
 With service worker:
 
 ![with service worker](screenshots/sw.gif)
+
 And here it is in actual numbers on Good 3G network speed:
 Without service worker:
 
@@ -30,6 +37,68 @@ Without service worker:
 With service worker:
 
 ![with service worker](screenshots/withsw.png)
+
+## Browser Technology
+I have optimized this website for all browsers that at least support Flexbox. The touchscreen that is used at the open day is connected to a laptop, the website should be opened in a browser that at least supports Flexbox. For an even better experience the website should be opened in a browser that supports CSS Grid. The website is also accessible outside the open days, but it should be expected from a potential student that wishes to study CMD that they use a modern browser. Also; most browsers have supported Flexbox since 2014.
+
+## Models
+Keystone works with models, the models are declared in the folder `/models` and look like this:
+```javascript
+var keystone = require('keystone');
+var Types = keystone.Field.Types; // import keystones field types
+
+// Make a new keystone list
+var Course = new keystone.List('Course', { 
+  map: {name: 'title'},
+  singular: 'course',
+  plural: 'courses',
+  autokey: {path: 'slug', from: 'title', unique: true}
+});
+
+// Add the fields you want to use:
+Course.add({
+  title: {type: String, required: true},
+  image: {type: Types.CloudinaryImage},
+  embeddedVideo: {type: Types.Html, wysiwyg: false, height: 40},
+  description: {type: Types.Html, wysiwyg: false, height: 400},
+  type: {type: Types.Select, options: 'project, vak, stage, profilering', default: 'vak'},
+  year: {type: Types.Select, options: 'propedeuse, jaar-2, jaar-3, afstudeerjaar', default: 'propedeuse'},
+  blok: {type: Types.Select, options: 'blok-1, blok-2, blok-3, blok-4, semester-1, semester-2', default: 'blok-1'},
+  courseType: {type: Types.Relationship, label: 'Course type', ref: 'CourseType', many: true},
+  connectedCourses: {type: Types.Relationship, label: 'Connected Courses', ref: 'Course', many: true}
+});
+
+// Register the new model to the backend
+Course.register(); 
+```
+Keystone has a lot of [predefined types](http://keystonejs.com/docs/database/#fieldtypes).
+
+To be able to use the data that was entered in the CMS by an administrator on the client side, a new view file has to be created in the folder `routes/views`.
+```javascript
+var keystone = require('keystone');
+
+// this makes models available in this file
+exports = module.exports = function(req, res) { 
+  var view = new keystone.View(req,res);
+	// All queries are saved in locals and usable on the client side
+  var locals = res.locals;
+
+  // view.query is used to find the model 'Curriculum', it is accessible on the client side with the query 'curriculum'.
+  view.query('curriculum', keystone.list('Curriculum').model.find());
+
+	// This renders the file /templates/views/curriculum.hbs
+  // Render view
+  view.render('curriculum');
+}
+```
+It is also possible to add filters inside the find function like this:
+```javascript
+  view.query('year', keystone.list('Curriculum').model.findOne({
+    slug: req.params.year
+  }));
+```
+This will make sure only data that has a slug that matches the params from the url. For example if the url was `cmd-touch.nl/curriculum/propedeuse` only data with the slug propedeuse will be selected.
+
 
 ## MOSCOW
 ### Must haves:
