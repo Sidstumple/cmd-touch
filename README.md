@@ -4,18 +4,26 @@ Repository for the end assignment of the minor Web Development at the University
 ## Live link
 http://cmd-touch.herokuapp.com/curriculum
 
+## Case
+The open days of the study Communication & Multimedia Design (CMD) at the University of Applied Sciences Amsterdam are meant to give students insight into what the study entails and what they can expect. A notable addition to the open day is the large touchscreen where students can view the curriculum on. Multitouch gestures, however, are not well supported on the touchscreen, making it almost impossible to scroll. Tapping however works very well and is a fun, interactive way for people to get a clear overview of what CMD has to offer. The challenge I took on was making the website easily navigatable, inviting to look at, informative and easy to maintain for the administrator. 
+
+## KeystoneJS, a Node CMS
+To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
+KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
+
+
+
 ## MOSCOW
 ### Must haves:
-- [ ] Fit in viewport, no scrolling
-- [ ] Detail page
-- [ ] Filter by Category
-- [ ] Dynamic, easy CMS
-- [ ] Fool proof interface
-- [ ] Folowing CMD's styleguide
+- [x] Fit in viewport, no scrolling
+- [x] Detail page
+- [x] Filter by category
+- [x] Dynamic, easy CMS
+- [x] Fool proof interface
+- [x] Following CMD's styleguide
 
 ### Should haves:
-- [ ] Inviting, user friendly interface
-- [ ] Extra space for student work
+- [x] Inviting, user friendly interface
 
 ## Dependencies
 - `keystone`(https://www.npmjs.com/package/keystone)
@@ -43,60 +51,3 @@ MONGO_URI
 5. run `node keystone`
 6. open http://localhost:3000/curriculum for the frontend and http://localhost:3000/keystone to edit the backend.
 7. For login credentials send an email to info@cydstumpel.nl
-
-## Keystone
-This website runs on Keystone, which is a CMS for Node.js. Keystone works with MongoDB models, to add a model create a new .js file in the `models` folder:
-```javascript
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
-
-// Create a new Keystone list
-var Curriculum = new keystone.List('Curriculum', {
-  map: {name:'title'},
-  singular: 'curriculum',
-  plural: 'curricula',
-  autokey: {path: 'slug', from: 'title', unique: true} //gives every item made in curriculum a unique slug based on the title
-});
-
-// Gives the ability to add a title and an image
-Curriculum.add({
-  title: {type: String, required: true},
-  image: {type: Types.CloudinaryImage},
-});
-
-// Register Curriculum and make it available in the backend
-Curriculum.register();
-```
-To send it to a page create a new .js file in `routes/views`:
-```javascript
-var keystone = require('keystone');
-
-exports = module.exports = function(req, res) {
-  var view = new keystone.View(req,res);
-  var locals = res.locals;
-
-  // Set locals
-  locals.section = 'curriculum';
-
-  // Load curriculum
-  view.query('curriculum', keystone.list('Curriculum').model.find());
-
-  // Render view
-  view.render('curriculum');
-}
-```
-
-To use it on a page, create a new or use an existing .hbs file in the `templates/views` folder:
-```html
-<div class="grid-container">
-  <h1>Bekijk het CMD curriculum per jaar:</h1>
-
-  <div class="curricula">
-    {{# each curriculum}}
-    <div class="curriculum">
-      <h2><a href="{{yearUrl slug}}/project" class="{{slug}}">{{title}}</a></h2>
-    </div>
-    {{/each}}
-  </div>
-</div>
-```
