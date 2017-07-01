@@ -21,6 +21,7 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+var compressor = require('node-minify');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -44,3 +45,17 @@ exports = module.exports = function (app) {
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };
+
+compressor.minify({
+  compressor: 'clean-css',
+  input: '/styles/style.css',
+  output: '/styles/style-min.css',
+  callback: function (err, min) {}
+});
+
+compressor.minify({
+  compressor: 'gcc',
+  input: '/js/index.js',
+  output: '/js/index-min.js',
+  callback: function (err, min) {}
+});

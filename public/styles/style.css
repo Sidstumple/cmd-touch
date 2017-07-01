@@ -340,9 +340,10 @@ svg {
 
 /*[Course page]*/
 .image {
-  max-height: 40vh;
+  height: 40vh;
   overflow: hidden;
   flex-grow: 1;
+  background: #FFCC00;
 }
 
 .video {
@@ -359,6 +360,7 @@ iframe + p {
 }
 
 .course-image {
+  transform: scale(1.1);
   width: 100%;
 }
 

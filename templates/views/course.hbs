@@ -7,16 +7,17 @@
             {{{course.embeddedVideo}}}
           </div>
         {{/ifCond}}
-        {{#ifCond course.image '!=' '{}'}}
-          <div class="image">
-            <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
-          </div>
-        {{/ifCond}}
-        {{#ifCond course.image '==' '{}'}}
-          <div class="image">
-            <img src="/images/cmd_beeldbank.jpg" alt="CMD Sfeerbeeld" class="course-image">
-          </div>
-        {{/ifCond}}
+        {{#ifeq course.embeddedVideo ''}}
+          {{#ifeq course.image '{}'}}
+            <div class="image">
+              <img src="/images/cmd_beeldbank.jpg" alt="CMD Sfeerbeeld" class="course-image">
+            </div>
+          {{else}}
+            <div class="image">
+              <img src="{{cloudinaryUrl course.image}}" alt="{{title}}" class="course-image">
+            </div>
+          {{/ifeq}}
+        {{/ifeq}}
         <div class="course-description">
           <h2>{{course.title}}</h2>
           <p class="columns">{{course.description}}</p>
