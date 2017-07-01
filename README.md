@@ -102,6 +102,30 @@ I have optimized this website for all browsers that at least support Flexbox. Th
 Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
 
 ![filters](screenshots/filters.gif) 
+If a course-type doesn't exist on the page it gets a class `hide`.
+
+```javascript
+filters.forEach(function(f) {
+// if there is no element with the selected class it gets hidden:
+  if (document.querySelectorAll('.' + f.id).length == 0) {
+    document.getElementById(f.id).classList.add('hide');
+  }
+  document.getElementById(f.id).addEventListener('click', function(e) {
+    filters.forEach(function(fe) {
+      document.getElementById(fe.id).classList.remove('filter-clicked');
+    })
+    document.getElementById(e.target.id).classList.add('filter-clicked');
+
+    document.querySelectorAll('.course').forEach(function(vak) {
+      vak.classList.remove('spotlight');
+    })
+    document.querySelectorAll('.' + this.id).forEach(function(vak) {
+      vak.classList.add('spotlight');
+    })
+  })
+})
+```
+
 
 ## [Models](#models)
 Keystone works with models, the models are declared in the folder `/models` and look like this:
@@ -222,7 +246,7 @@ MONGO_URI
 - [ ] Manual for the backend
 - [x] Minifying
 - [x] Skeleton loading
-- [ ] Better feedback method for when a filter doesn't match any course on a page
+- [x] Better feedback method for when a filter doesn't match any course on a page (see: [Filter by course type](#filter-by-course-type))
 - [ ] More progressive enhancement, i.e. making it available on browsers that don't support Flexbox
 - [ ] More, useful animations
 - [ ] Data model
