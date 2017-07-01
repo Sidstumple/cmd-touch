@@ -36,6 +36,8 @@ This website has a [code guideline](/code-styleguide.md) to make sure all code i
 I used the relatively new CSS Grid layout for most elements. CSS Grid is very responsive and doesn't need a lot of code lines. To make sure older browsers are also supported I used CSS flexbox.
 
 ## [Performance Matters](#performance-matters)
+
+### Service Worker
 If the internet disconnects suddenly at an open day the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time on Good 3G network speed:
 
 
@@ -55,6 +57,9 @@ Without service worker:
 With service worker:
 
 ![with service worker](screenshots/withsw.png)
+
+### Node-minify
+
 
 ## [Browser Technology](#browser-technology)
 I have optimized this website for all browsers that at least support Flexbox. The touchscreen that is used at the open day is connected to a laptop, the website should be opened in a browser that at least supports Flexbox. For an even better experience the website should be opened in a browser that supports CSS Grid. The website is also accessible outside the open days, but it should be expected from a potential student that wishes to study CMD that they use a modern browser. Also; most browsers have supported Flexbox since 2014.
