@@ -40,15 +40,12 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 25%;
   grid-gap: 1em;
+  margin-top: 1em;
 }
 
 .capitalize {
   text-transform: capitalize;
   font-weight: bold;
-}
-
-.hide {
-  display: none;
 }
 
 .columns {
@@ -170,7 +167,6 @@ h2 {
 }
 
 .course {
-  height: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,6 +178,7 @@ h2 {
   background-repeat: no-repeat;
   background-size: 0.8em;
   background-position: .2em .2em;
+  padding: 0.5em;
 }
 
 .course a {
@@ -202,9 +199,10 @@ h2 {
   background-color: #DECDBF;
   height: max-content;
   margin-bottom: 0.2em;
+  padding: 0.1em 1em;
 }
 
-.keuzevak a, .keuzevak-legenda a {
+.keuzevak a {
   color: black;
 }
 
@@ -215,7 +213,7 @@ h2 {
   box-sizing: border-box;
 }
 
-.project a, .project-legenda a {
+.project a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -230,7 +228,7 @@ h2 {
   color: black;
 }
 
-.stage a .stage-legenda a{
+.stage a {
   color: black;
 }
 
@@ -239,18 +237,27 @@ svg {
 }
 
 /*Legenda*/
-.legenda-title {
+.legenda-container {
+  background: white;
+  padding: 0.5em;
+}
+
+.legenda-container p {
   margin: 0;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
 }
 
 .legenda {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
+  margin-top: 1em;
 }
 
 .legenda div {
-  margin-top: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,6 +265,8 @@ svg {
 
 .legenda p {
   margin: 0;
+  order: 1;
+  margin-right: 1em;
 }
 
 .projecten, .kernvakken, .profilering, .stages {
@@ -267,8 +276,8 @@ svg {
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-align: center;
-  width: 15em;
-  margin-right: 1em;
+  width: 2em;
+  margin-right: .5em;
 }
 
 .kernvakken {
@@ -307,9 +316,8 @@ svg {
 
 /*Description about the year*/
 .year-description {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
-
 
 /*Detail page*/
 .course-detail {
@@ -340,10 +348,11 @@ svg {
 
 /*[Course page]*/
 .image {
+  min-height: 30vh;
   max-height: 40vh;
   overflow: hidden;
   flex-grow: 1;
-  /*background: #FFCC00;*/
+  background: #FFCC00;
 }
 
 .video {
@@ -388,6 +397,7 @@ iframe + p {
   margin-top: .5em;
   background-size: cover;
   background-position: 0;
+  padding: 0;
 }
 
 .meta {
@@ -452,7 +462,7 @@ iframe + p {
 .filter-items {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
   align-items: flex-start;
   margin-top: 3em;
@@ -465,7 +475,7 @@ iframe + p {
 .filter-item {
   z-index: 999;
   cursor: pointer;
-  margin: 0;
+  margin: 1em 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -473,7 +483,7 @@ iframe + p {
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-align: center;
-  height: 1em;
+  height: 3em;
 }
 
 .filter img {
@@ -536,11 +546,21 @@ nav {
 nav a, nav p {
   text-decoration: none;
   color: black;
-  font-weight: bold;
   text-transform: uppercase;
   font-size: 1em;
   letter-spacing: 0.1em;
   text-align: center;
+}
+
+.active a {
+  font-weight: bold;
+}
+
+nav a:hover,
+nav p:hover,
+nav a:active,
+nav p:active {
+  font-weight: bold;
 }
 
 nav p {
@@ -554,7 +574,7 @@ nav p {
 }
 
 nav img {
-  height: 2em;
+  height: 1.5em;
   padding-right: 1em;
 }
 
@@ -592,8 +612,8 @@ nav img {
 }
 
 @media (max-width: 60.1em) {
-  .year-description {
-    padding-bottom: 20em;
+  .legenda-container {
+    margin-bottom: 20em;
   }
   .filter-toggled .filter-title {
     margin-left: 10em;
@@ -637,7 +657,6 @@ nav img {
   .years, .filter {
     grid-template-columns: 1fr;
   }
-
   .year-description {
     padding-bottom: 0;
   }
@@ -661,6 +680,9 @@ nav img {
   }
   .back {
     display: none;
+  }
+  .image {
+    height: 30vh;
   }
 }
 /*If browser does not support grid*/
@@ -728,7 +750,7 @@ nav img {
     display: flex;
     flex-direction: column;
   }
-  .year-description {
+  .legenda-container {
     margin-bottom: 10em;
   }
   .grid-row {
@@ -759,4 +781,8 @@ nav img {
       margin-bottom: 10em;
     }
   }
+}
+
+.hide {
+  display: none;
 }

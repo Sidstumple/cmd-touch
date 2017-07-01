@@ -9,17 +9,17 @@
   </div>
   <div class="content">
     <article class="standard-container filter-margin" id="closeFilters">
-      <h2 class='year-title'>{{year.title}}</h2>
+      <h2 class='year-title' id="nav-identifier">{{year.title}}</h2>
       <div class="column-grid">
 
         {{#ifCond year.slug '==' 'jaar-3'}}
-        <div class="semester-1 blokken">
-          <div class="header-semester-1">
+        <section class="semester-1 blokken">
+          <header class="header-semester-1">
             <div class="blok-title">
               <h2>Semester 1</h2>
               <p>September - januari</p>
             </div>
-          </div>
+          </header>
           <div class="column-2">
             {{#each course}}
               {{#ifeq blok 'semester-1'}}
@@ -39,14 +39,14 @@
             {{/each}}
           </div>
 
-        </div>
-        <div class="semester-2 blokken">
-          <div class="header-semester-2">
+        </section>
+        <section class="semester-2 blokken">
+          <header class="header-semester-2">
             <div class="blok-title">
               <h2>Semester 2</h2>
               <p>Februari - juni</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'semester-2'}}
             <div class="vakken">
@@ -56,17 +56,17 @@
             </div>
           {{/ifeq}}
           {{/each}}
-        </div>
+        </section>
         {{/ifCond}}
 
         {{#ifCond year.slug '==' 'afstudeerjaar'}}
-        <div class="semester-1 blokken">
-          <div class="header-semester-1">
+        <section class="semester-1 blokken">
+          <header class="header-semester-1">
             <div class="blok-title">
               <h2>Semester 1</h2>
               <p>September - januari</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
             {{#ifeq blok 'semester-1'}}
               <div class="vakken">
@@ -76,14 +76,14 @@
               </div>
               {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="semester-2 blokken">
-          <div class="header-semester-2">
+        </section>
+        <section class="semester-2 blokken">
+          <header class="header-semester-2">
             <div class="blok-title">
               <h2>Semester 2</h2>
               <p>Februari - juni</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'semester-2'}}
             <div class="vakken">
@@ -93,17 +93,17 @@
             </div>
           {{/ifeq}}
           {{/each}}
-        </div>
+        </section>
         {{/ifCond}}
 
         {{#ifCond year.slug '==' 'propedeuse'}}
-        <div class="blok1 blokken">
-          <div class="header-blok1">
+        <section class="blok1 blokken">
+          <header class="header-blok1">
             <div class="blok-title">
               <h2>Blok 1</h2>
               <p>September - november</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-1'}}
             {{#ifeq type 'project'}}
@@ -120,14 +120,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok2 blokken">
-          <div class="header-blok2">
+        </section>
+        <section class="blok2 blokken">
+          <header class="header-blok2">
             <div class="blok-title">
               <h2>Blok 2</h2>
               <p>November - januari</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-2'}}
             {{#ifeq type 'project'}}
@@ -144,14 +144,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok3 blokken">
-          <div class="header-blok3">
+        </section>
+        <section class="blok3 blokken">
+          <header class="header-blok3">
             <div class="blok-title">
               <h2>Blok 3</h2>
               <p>Januari - april</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-3'}}
             {{#ifeq type 'project'}}
@@ -168,14 +168,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok4 blokken">
-          <div class="header-blok4">
+        </section>
+        <section class="blok4 blokken">
+          <header class="header-blok4">
             <div class="blok-title">
               <h2>Blok 4</h2>
               <p>April - juni</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-4'}}
             {{#ifeq type 'project'}}
@@ -210,17 +210,17 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
+        </section>
         {{/ifCond}}
 
         {{#ifCond year.slug '==' 'jaar-2'}}
-        <div class="blok1 blokken">
-          <div class="header-blok1">
+        <section class="blok1 blokken">
+          <header class="header-blok1">
             <div class="blok-title">
               <h2>Blok 1</h2>
               <p>September - november</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-1'}}
             {{#ifeq type 'project'}}
@@ -237,14 +237,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok2 blokken">
-          <div class="header-blok2">
+        </section>
+        <section class="blok2 blokken">
+          <header class="header-blok2">
             <div class="blok-title">
               <h2>Blok 2</h2>
               <p>November - januari</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-2'}}
             {{#ifeq type 'project'}}
@@ -261,14 +261,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok3 blokken">
-          <div class="header-blok3">
+        </section>
+        <section class="blok3 blokken">
+          <header class="header-blok3">
             <div class="blok-title">
               <h2>Blok 3</h2>
               <p>Januari - april</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-3'}}
             {{#ifeq type 'project'}}
@@ -285,14 +285,14 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
-        <div class="blok4 blokken">
-          <div class="header-blok4">
+        </section>
+        <section class="blok4 blokken">
+          <header class="header-blok4">
             <div class="blok-title">
               <h2>Blok 4</h2>
               <p>April - juni</p>
             </div>
-          </div>
+          </header>
           {{#each course}}
           {{#ifeq blok 'blok-4'}}
             {{#ifeq type 'project'}}
@@ -327,26 +327,29 @@
             {{/ifeq}}
           {{/ifeq}}
           {{/each}}
-        </div>
+        </section>
         {{/ifCond}}
       </div>
 
-      <p class="legenda-title">Legenda:</p>
-      <div class="legenda">
-        <div class="projecten project-legenda course">
+      <p class="year-description columns">{{year.description}}</p>
+
+      <section class="legenda-container">
+        <p class="legenda-title">Legenda:</p>
+        <div class="legenda">
+          <div class="projecten project-legenda course">
+          </div>
           <p>Projecten</p>
-        </div>
-        <div class="kernvakken course">
+          <div class="kernvakken course">
+          </div>
           <p>Kernvakken</p>
-        </div>
-        <div class="profilering keuzevak-legenda course">
+          <div class="profilering keuzevak-legenda course">
+          </div>
           <p>Profileringsvakken</p>
-        </div>
-        <div class="course stages stage-legenda">
+          <div class="course stages stage-legenda">
+          </div>
           <p>Stage</p>
         </div>
-      </div>
-      <p class="year-description columns">{{year.description}}</p>
+      </section>
     </article>
 
     <div class="toggle hide" id="menu-toggle">

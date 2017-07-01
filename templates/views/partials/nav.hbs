@@ -1,9 +1,9 @@
 <nav id="nav" class="mobile-hide">
   <div class="years">
     {{#each allYears}}
-    <div class="nav-item">
-      <p><a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</a>
-      </p>
+    <div class="nav-item identify">
+      <a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon"><p>{{title}}</p></a>
+
     </div>
     {{/each}}
     <div class="nav-item back">

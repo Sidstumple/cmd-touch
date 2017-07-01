@@ -15,6 +15,16 @@ var nav = document.getElementById('nav');
 var filterToggle = document.getElementById('filter');
 var filters = document.querySelectorAll('.filter-item');
 var closeFilters = document.getElementById('closeFilters');
+var navIdentifier = document.getElementById('nav-identifier');
+var navItems = document.querySelectorAll('.identify');
+
+// Let the user know on which page they are
+navItems.forEach(function(item) {
+  // console.log();
+  if (navIdentifier.innerHTML == item.firstElementChild.children[1].innerHTML) {
+    item.classList.add('active');
+  }
+})
 
 // Show menu when clicked
 menuToggle.addEventListener('click', function(e) {
@@ -39,6 +49,9 @@ closeFilters.addEventListener('click', function(e) {
 
 // Throw some spotlight on clicked course types
 filters.forEach(function(f) {
+  if (document.querySelectorAll('.' + f.id).length == 0) {
+    document.getElementById(f.id).classList.add('hide');
+  }
   document.getElementById(f.id).addEventListener('click', function(e) {
     filters.forEach(function(fe) {
       document.getElementById(fe.id).classList.remove('filter-clicked');
@@ -51,8 +64,5 @@ filters.forEach(function(f) {
     document.querySelectorAll('.' + this.id).forEach(function(vak) {
       vak.classList.add('spotlight');
     })
-    if (document.querySelectorAll('.' + this.id).length == 0) {
-      alert('Geen vakken gevonden met dit type')
-    }
   })
 })
