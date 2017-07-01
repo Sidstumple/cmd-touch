@@ -201,6 +201,7 @@ Keystone uses handlebars as a view engine, queries from `/routes/views` can be u
 - `dotenv`(https://www.npmjs.com/package/dotenv)
 - `keystone-email`(https://www.npmjs.com/package/keystone-email)
 - `async`(https://www.npmjs.com/package/async)
+- `node-minify`(https://www.npmjs.com/package/node-minify)
 
 ## [Install](#install)
 1. Clone this repository
