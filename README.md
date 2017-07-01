@@ -59,6 +59,40 @@ With service worker:
 ![with service worker](screenshots/withsw.png)
 
 ### Node-minify
+I used the NPM module `node-minify` to minify my CSS and JS files. Node-minify takes your normal css/js file and uses it to make a new file with the minified code.
+
+Everything is tested on 'Good 3G' speed of Google Chrome's Developer tools to give a more accurate audit.
+
+Without Minify:
+
+![without minify](screenshots/wo-minify.gif) 
+
+
+With Minify:
+
+![with minify](screenshots/w-minify.gif) 
+
+And here it is in actual numbers on Good 3G network speed:
+
+Without minify:
+
+![without minify](screenshots/wo-minify.png) 
+
+With Minify:
+
+![with minify](screenshots/w-minify.png) 
+
+## Skeleton Loading
+To avoid content jumping down when images are loaded I added skeleton loading.
+
+Without skeleton loading:
+
+![without skeleton loading](screenshots/no-skeleton.gif) 
+
+
+With skeleton loading:
+
+![with skeleton loading](screenshots/skeleton.gif) 
 
 
 ## [Browser Technology](#browser-technology)
@@ -185,8 +219,8 @@ MONGO_URI
 ## [Wishlist](#wishlist)
 - [ ] Suggestions on detail page based on course types of current course
 - [ ] Manual for the backend
-- [ ] Minifying
-- [ ] Skeleton loading
+- [x] Minifying
+- [x] Skeleton loading
 - [ ] Better feedback method for when a filter doesn't match any course on a page
 - [ ] More progressive enhancement, i.e. making it available on browsers that don't support Flexbox
 - [ ] More, useful animations
