@@ -1,6 +1,20 @@
 # CMD Touch
 Repository for the end assignment of the minor Web Development at the University of Applied Sciences. This repository has a [code guideline](/code-styleguide.md), which should be followed.
 
+## Index
+1. [Case](#case)
+2. [KeystoneJS](#keystonejs)
+3. [Web App From Scratch](#web-app-from-scratch)
+4. [CSS to the Rescue](#css-to-the-rescue)
+5. [Performance Matters](#performance-matters)
+6. [Browser Technology](#browser-technology)
+7. [Filter by course type](#filter-by-course-type)
+8. [Models](#models)
+9. [Handlebars](#handlebars)
+10. [MOSCOW](#moscow)
+11. [Dependencies](#dependencies)
+12. [Install](#install)
+13. [Wishlist](#wishlist)
 ## Live link
 http://cmd-touch.herokuapp.com/
 
@@ -8,25 +22,22 @@ http://cmd-touch.herokuapp.com/
 http://cmd-touch.herokuapp.com/keystone
 
 
-## Case
+## [Case](#case)
 The open days of the study Communication & Multimedia Design (CMD) at the University of Applied Sciences Amsterdam are meant to give students insight into what the study entails and what they can expect. A notable addition to the open day is the large touchscreen where students can view the curriculum on. Multitouch gestures, however, are not well supported on the touchscreen, making it almost impossible to scroll. Tapping however works very well and is a fun, interactive way for people to get a clear overview of what CMD has to offer. The challenge I took on was making the website easily navigatable, inviting to look at, informative and easy to maintain for the administrator. 
 
-## KeystoneJS, a Node CMS
+## [KeystoneJS](#keystonejs)
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
 KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
 
-## Filter by course type
-Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
-![filters](screenshots/filters.gif) 
-
-
-## Web App From Scratch
+## [Web App From Scratch](#web-app-from-scratch)
 This website has a [code guideline](/code-styleguide.md) to make sure all code is comprehensible and follows the same structure.
 
-## CSS to the Rescue
+## [CSS to the Rescue](#css-to-the-rescue)
 I used the relatively new CSS Grid layout for most elements. CSS Grid is very responsive and doesn't need a lot of code lines. To make sure older browsers are also supported I used CSS flexbox.
 
-## Performance Matters
+## [Performance Matters](#performance-matters)
+
+### Service Worker
 If the internet disconnects suddenly at an open day the website uses a service worker to load the pages that have already been viewed from cache. The service worker also helps to load pages faster, especially those with images, here is a visual before and after of the loading time on Good 3G network speed:
 
 
@@ -47,10 +58,18 @@ With service worker:
 
 ![with service worker](screenshots/withsw.png)
 
-## Browser Technology
+### Node-minify
+
+
+## [Browser Technology](#browser-technology)
 I have optimized this website for all browsers that at least support Flexbox. The touchscreen that is used at the open day is connected to a laptop, the website should be opened in a browser that at least supports Flexbox. For an even better experience the website should be opened in a browser that supports CSS Grid. The website is also accessible outside the open days, but it should be expected from a potential student that wishes to study CMD that they use a modern browser. Also; most browsers have supported Flexbox since 2014.
 
-## Models
+## [Filter by course type](#filter-by-course-type)
+Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
+
+![filters](screenshots/filters.gif) 
+
+## [Models](#models)
 Keystone works with models, the models are declared in the folder `/models` and look like this:
 ```javascript
 var keystone = require('keystone');
@@ -108,8 +127,23 @@ It is also possible to add filters inside the find function like this:
 ```
 This will make sure only data that has a slug that matches the params from the url. For example if the url was `cmd-touch.nl/curriculum/propedeuse` only data with the slug propedeuse will be selected.
 
+## [Handlebars](#handlebars)
+Keystone uses handlebars as a view engine, queries from `/routes/views` can be used in the folder `/templates/views` like this:
+```javascript
+<div class="grid-container">
+  <h1>Bekijk het CMD curriculum per jaar:</h1>
 
-## MOSCOW
+  <div class="curricula">
+    {{# each curriculum}} // loop through all objects in curriculum
+    <div class="curriculum">
+      <h2><a href="{{yearUrl slug}}" class="{{slug}}" style="background-image: url({{cloudinaryUrl image}})">{{title}}</a></h2>
+    </div>
+    {{/each}}
+  </div>
+</div>
+```
+
+## [MOSCOW](#moscow)
 ### Must haves:
 - [x] Fit in viewport, no scrolling
 - [x] Detail page
@@ -121,7 +155,7 @@ This will make sure only data that has a slug that matches the params from the u
 ### Should haves:
 - [x] Inviting, user friendly interface
 
-## Dependencies
+## [Dependencies](#dependencies)
 - `keystone`(https://www.npmjs.com/package/keystone)
 - `lodash`(https://www.npmjs.com/package/lodash)
 - `moment`(https://www.npmjs.com/package/moment)
@@ -134,7 +168,7 @@ This will make sure only data that has a slug that matches the params from the u
 - `keystone-email`(https://www.npmjs.com/package/keystone-email)
 - `async`(https://www.npmjs.com/package/async)
 
-## Install
+## [Install](#install)
 1. Clone this repository
 2. Create a .env file with the following keys:
 ```.env
@@ -147,3 +181,14 @@ MONGO_URI
 5. run `node keystone`
 6. open http://localhost:3000/curriculum for the frontend and http://localhost:3000/keystone to edit the backend.
 7. For login credentials send an email to info@cydstumpel.nl
+
+## [Wishlist](#wishlist)
+- [ ] Suggestions on detail page based on course types of current course
+- [ ] Manual for the backend
+- [ ] Minifying
+- [ ] Skeleton loading
+- [ ] Better feedback method for when a filter doesn't match any course on a page
+- [ ] More progressive enhancement, i.e. making it available on browsers that don't support Flexbox
+- [ ] More, useful animations
+- [ ] Data model
+
