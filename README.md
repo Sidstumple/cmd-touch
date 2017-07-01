@@ -248,6 +248,6 @@ MONGO_URI
 - [x] Skeleton loading
 - [x] Better feedback method for when a filter doesn't match any course on a page (see: [Filter by course type](#filter-by-course-type))
 - [ ] More progressive enhancement, i.e. making it available on browsers that don't support Flexbox
-- [ ] More, useful animations
+- [x] Showing the user what page they are on in the navigation
 - [ ] Data model
 
