@@ -340,10 +340,10 @@ svg {
 
 /*[Course page]*/
 .image {
-  height: 40vh;
+  max-height: 40vh;
   overflow: hidden;
   flex-grow: 1;
-  background: #FFCC00;
+  /*background: #FFCC00;*/
 }
 
 .video {
