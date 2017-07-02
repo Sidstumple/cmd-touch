@@ -1,11 +1,11 @@
 <div class="sidebar-layout">
-  <div class="filter">
+  <div class="filter hide" id="filter-container">
     <div class="filter-items">
+      <p class="filter-title" id="filter">Filter vakken</p>
       {{#each courseType}}
       <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
       {{/each}}
     </div>
-    <p class="filter-title" id="filter">Filter vakken</p>
   </div>
   <div class="content">
     <article class="standard-container filter-margin" id="closeFilters">

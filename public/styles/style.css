@@ -207,7 +207,6 @@ h2 {
 }
 
 .project, .project-legenda {
-  height: 2em;
   order: 1;
   background-color: #FFCC00;
   box-sizing: border-box;
@@ -240,6 +239,7 @@ svg {
 .legenda-container {
   background: white;
   padding: 0.5em;
+  margin-bottom: 5em;
 }
 
 .legenda-container p {
@@ -426,7 +426,6 @@ iframe + p {
 }
 
 /*FILTER*/
-
 .filter {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
@@ -444,13 +443,13 @@ iframe + p {
 }
 
 .filter-title {
-  position: relative;
+  position: absolute;
   cursor: pointer;
   transform: rotate(90deg);
   height: 5em;
   margin: 0;
   margin-left: 12em;
-  margin-top: 4.5em;
+  margin-top: 9.5em;
   width: 9em;
   background: #a6d5c2;
   padding: 0.5em;
@@ -465,8 +464,7 @@ iframe + p {
   justify-content: flex-start;
   height: 100%;
   align-items: flex-start;
-  margin-top: 3em;
-  }
+}
 
 .filter-clicked {
   color: #EB5D56;
@@ -489,6 +487,13 @@ iframe + p {
 .filter img {
   height: 2em;
   padding-right: 1em;
+}
+
+/*Extending the clickable area*/
+.filter-title::before {
+  content: '';
+  padding: 0 100vh 2em 100vh;
+  margin: 0 -100vh;
 }
 
 @keyframes wellhello{
@@ -567,6 +572,10 @@ nav p {
   font-size: 0.8em;
 }
 
+.nav-item.identify {
+  min-width: 10em;
+}
+
 .nav-item p, .nav-item a {
   display: flex;
   justify-content: center;
@@ -590,6 +599,10 @@ nav img {
   background-size: 1.5em;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 81.3em) {
@@ -630,18 +643,6 @@ nav img {
   .filter-margin {
     padding-left: 4em;
   }
-}
-
-@media (max-width: 47em) {
-  .nav-item:first-of-type {
-    width: 26vw
-  }
-}
-
-@media (max-width: 35.3em) {
-  .filter {
-    height: 100%
-  }
   .toggle {
     display: block;
     z-index: 999;
@@ -654,8 +655,23 @@ nav img {
   .mobile-hide {
     display: none;
   }
+  .back {
+    display: none;
+  }
   .years, .filter {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 47em) {
+  .nav-item:first-of-type {
+    width: 26vw
+  }
+}
+
+@media (max-width: 35.3em) {
+  .filter {
+    height: 100%
   }
   .year-description {
     padding-bottom: 0;
@@ -677,9 +693,6 @@ nav img {
   }
   .filter-title {
     margin-left: 8em;
-  }
-  .back {
-    display: none;
   }
   .image {
     height: 30vh;
@@ -781,8 +794,4 @@ nav img {
       margin-bottom: 10em;
     }
   }
-}
-
-.hide {
-  display: none;
 }

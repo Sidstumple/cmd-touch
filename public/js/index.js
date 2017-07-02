@@ -12,11 +12,15 @@ if ('serviceWorker' in navigator) {
 
 var menuToggle = document.getElementById('menu-toggle');
 var nav = document.getElementById('nav');
+var filterContainer = document.getElementById('filter-container')
 var filterToggle = document.getElementById('filter');
 var filters = document.querySelectorAll('.filter-item');
 var closeFilters = document.getElementById('closeFilters');
 var navIdentifier = document.getElementById('nav-identifier');
 var navItems = document.querySelectorAll('.identify');
+
+// Show filter only if there is javascript
+filterContainer.classList.remove('hide');
 
 // Let the user know on which page they are
 navItems.forEach(function(item) {
@@ -36,15 +40,15 @@ menuToggle.addEventListener('click', function(e) {
 })
 
 filterToggle.addEventListener('click', function(e){
-  if (filterToggle.parentNode.classList.contains('filter-toggled')) {
-    filterToggle.parentNode.classList.remove('filter-toggled');
+  if (filterToggle.parentNode.parentNode.classList.contains('filter-toggled')) {
+    filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
   } else {
-    filterToggle.parentNode.classList.add('filter-toggled');
+    filterToggle.parentNode.parentNode.classList.add('filter-toggled');
   }
 })
 
 closeFilters.addEventListener('click', function(e) {
-  filterToggle.parentNode.classList.remove('filter-toggled');
+  filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
 })
 
 // Throw some spotlight on clicked course types
