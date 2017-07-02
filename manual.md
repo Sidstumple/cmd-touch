@@ -51,7 +51,7 @@ Adding a new course:
 6. Add a year.
 7. Add a blok.
 8. Add course types.
-9. Add connected courses, **Important**, only add connected courses on projects, this is how the page knows which courses to add under which projects. 
+9. Add connected courses, **Important**: only add connected courses on projects, this is how the page knows which courses to add under which projects. 
 3. Click `Save` to save your changes.
 
 Editing a course: 
@@ -70,3 +70,8 @@ Getting the embed tag from Vimeo:
 3. Copy the supplied link and paste it in the `Embedded video` field of the course.
 
 ### [Deleting items](#deleting-items)
+Delete an item: 
+1. Click the trashcan next to the item you want to delete.
+2. Click `Delete` to proceed or `Cancel` to abord.
+
+![Delete an item](/screenshots/manual/deleteitem.gif)
