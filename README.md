@@ -44,7 +44,7 @@ The open days of the study Communication & Multimedia Design (CMD) at the Univer
 
 ## [KeystoneJS](#keystonejs)
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
-KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
+KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. [The manual for the CMS can be found here](/manual.md)
 
 ## [Web App From Scratch](#web-app-from-scratch)
 This website has a [code guideline](/code-styleguide.md) to make sure all code is comprehensible and follows the same structure.
