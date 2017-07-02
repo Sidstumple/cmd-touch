@@ -262,7 +262,7 @@ MONGO_URI
 
 ## [Wishlist](#wishlist)
 - [ ] Suggestions on detail page based on course types of current course
-- [ ] Manual for the backend
+- [x] Manual for the backend
 - [x] Minifying
 - [x] Skeleton loading
 - [x] Better feedback method for when a filter doesn't match any course on a page (see: [Filter by course type](#filter-by-course-type))
