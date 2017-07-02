@@ -17,7 +17,7 @@ Curriculums consist of the study years, the values are now Propedeuse, Jaar 2, J
 
 Adding a year:
 1. Click `Create curriculum` and add a title, click `Create` to proceed or `Cancel` to abord. 
-2. Add an image and a description. The image is the icon shown on the [curriculum](cmd-touch.herokuapp.com/curriculum) page the description is shown on the year pages, f.e. [propedeuse](cmd-touch.herokuapp.com/curriculum/propedeuse).
+2. Add an image and a description. The image is the icon shown on the [curriculum](http://cmd-touch.herokuapp.com/curriculum) page the description is shown on the year pages, f.e. [propedeuse](http://cmd-touch.herokuapp.com/curriculum/propedeuse).
 
 
 
