@@ -3,18 +3,19 @@ Repository for the end assignment of the minor Web Development at the University
 
 ## Index
 1. [Case](#case)
-2. [KeystoneJS](#keystonejs)
-3. [Web App From Scratch](#web-app-from-scratch)
-4. [CSS to the Rescue](#css-to-the-rescue)
-5. [Performance Matters](#performance-matters)
-6. [Browser Technology](#browser-technology)
-7. [Filter by course type](#filter-by-course-type)
-8. [Models](#models)
-9. [Handlebars](#handlebars)
-10. [MOSCOW](#moscow)
-11. [Dependencies](#dependencies)
-12. [Install](#install)
-13. [Wishlist](#wishlist)
+2. [Feature list](#feature-list)
+3. [KeystoneJS](#keystonejs)
+4. [Web App From Scratch](#web-app-from-scratch)
+5. [CSS to the Rescue](#css-to-the-rescue)
+6. [Performance Matters](#performance-matters)
+7. [Browser Technology](#browser-technology)
+8. [Filter by course type](#filter-by-course-type)
+9. [Models](#models)
+10. [Handlebars](#handlebars)
+11. [MOSCOW](#moscow)
+12. [Dependencies](#dependencies)
+13. [Install](#install)
+14. [Wishlist](#wishlist)
 ## Live link
 http://cmd-touch.herokuapp.com/
 
@@ -24,6 +25,22 @@ http://cmd-touch.herokuapp.com/keystone
 
 ## [Case](#case)
 The open days of the study Communication & Multimedia Design (CMD) at the University of Applied Sciences Amsterdam are meant to give students insight into what the study entails and what they can expect. A notable addition to the open day is the large touchscreen where students can view the curriculum on. Multitouch gestures, however, are not well supported on the touchscreen, making it almost impossible to scroll. Tapping however works very well and is a fun, interactive way for people to get a clear overview of what CMD has to offer. The challenge I took on was making the website easily navigatable, inviting to look at, informative and easy to maintain for the administrator. 
+
+## [Feature list](#feature-list)
+* CMS
+  * Add/remove/edit courses
+    * Add multiple coursetypes to courses
+    * Add embedded video's to coursetypes
+    * Assign courses to projects
+    * Two layout possibilities: 4 trimesters or 2 semesters
+  * Add/remove/edit coursetypes
+  * Add/remove/edit years
+  * Customizable icons
+  * Embedded video's
+* Filter by category
+* View details
+* See other courses
+
 
 ## [KeystoneJS](#keystonejs)
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
@@ -102,7 +119,8 @@ I have optimized this website for all browsers that at least support Flexbox. Th
 Users are able to filter the courses by types. Types can be added and removed and one or more can be assigned to a course in the CMS.
 
 ![filters](screenshots/filters.gif) 
-If a course-type doesn't exist on the page it gets a class `hide`.
+
+If a course-type doesn't exist on the page the class `hide` is added.
 
 ```javascript
 filters.forEach(function(f) {
@@ -209,6 +227,7 @@ Keystone uses handlebars as a view engine, queries from `/routes/views` can be u
 - [x] Dynamic, easy CMS
 - [x] Fool proof interface
 - [x] Following CMD's styleguide
+- [x] Option for Semester layout as well as Trimesters
 
 ### Should haves:
 - [x] Inviting, user friendly interface
