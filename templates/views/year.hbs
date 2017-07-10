@@ -4,11 +4,11 @@
       <h3>Laat vakken zien die te maken hebben met:</h3>
       <p class="filter-title" id="filter">Filter vakken</p>
       {{#each courseType}}
-        {{#ifeq slug 'project'}}
+        {{#ifCond slug '!==' 'stage'}}
           <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
-          {{else}}
-            <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
-        {{/ifeq}}
+        {{else}}
+          <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+        {{/ifCond}}
       {{/each}}
     </div>
   </section>
