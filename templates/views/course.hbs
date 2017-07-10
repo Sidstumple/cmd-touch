@@ -1,7 +1,7 @@
-<article class="standard-container">
-  <div class="grid-row">
-    <div class="course-info">
-      <div class="course-detail">
+<main class="standard-container">
+  <section class="grid-row">
+    <section class="course-info">
+      <section class="course-detail">
         {{#ifCond course.embeddedVideo '!=' ' '}}
           <div class="video">
             {{{course.embeddedVideo}}}
@@ -18,26 +18,37 @@
             </div>
           {{/ifeq}}
         {{/ifeq}}
-        <div class="course-description">
+        <section class="course-description">
           <h2>{{course.title}}</h2>
           <p class="columns">{{course.description}}</p>
-          <div class="capitalize meta"><p>{{course.year}} | {{course.blok}} </p> <div class="course-tags">{{#each course.courseType}} <div class="coursetype-tag">{{title}} </div>{{/each}}</div></div>
-        </div>
-      </div>
-    </div>
+          <div class="capitalize meta"><p><span id="nav-identifier">{{year.title}}</span> | {{course.blok}} </p> <div class="course-tags">{{#each course.courseType}} <div class="coursetype-tag">{{title}} </div>{{/each}}</div></div>
+        </section>
+      </section>
+    </section>
+      {{#ifCond course.connectedCourses.length '>' '5'}}
+        <section class="suggestions">
+          <h3>Bekijk ook deze vakken uit dit blok:</h3>
+          {{#each course.connectedCourses}}
+          <div class="course course-suggestion smaller-suggestions {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
+            <a href="{{slug}}"><h3>{{title}}</h3></a>
+          </div>
+          {{/each}}
+        </section>
+        {{else}}
+        <section class="suggestions">
+          <h3>Bekijk ook deze vakken uit dit blok:</h3>
+          {{#each course.connectedCourses}}
+          <div class="course course-suggestion {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
+            <a href="{{slug}}"><h3>{{title}}</h3></a>
+          </div>
+          {{/each}}
+        </section>
+      {{/ifCond}}
 
-    <div class="suggestions">
-      <h3>Bekijk ook deze vakken:</h3>
-      {{#each data.courseType}}
-      <div class="course course-suggestion {{slug}}" style="background-image: url({{#ifeq image '{}'}}'/images/cmd_beeldbank.jpg'{{else}}{{cloudinaryUrl image}}{{/ifeq}})">
-        <a href="{{slug}}"><h3>{{title}}</h3></a>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-</article>
+  </section>
+</main>
 
-<div class="toggle hide" id="menu-toggle">
-</div>
+<section class="toggle hide" id="menu-toggle">
+</section>
 
 {{> nav}}

@@ -1,72 +1,103 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-
-var menuToggle = document.getElementById('menu-toggle');
-var nav = document.getElementById('nav');
-var filterContainer = document.getElementById('filter-container')
-var filterToggle = document.getElementById('filter');
-var filters = document.querySelectorAll('.filter-item');
-var closeFilters = document.getElementById('closeFilters');
-var navIdentifier = document.getElementById('nav-identifier');
-var navItems = document.querySelectorAll('.identify');
-
-// Show filter only if there is javascript
-filterContainer.classList.remove('hide');
-
-// Let the user know on which page they are
-navItems.forEach(function(item) {
-  // console.log();
-  if (navIdentifier.innerHTML == item.firstElementChild.children[1].innerHTML) {
-    item.classList.add('active');
+(function(){
+  "use strict";
+  var config = {
+    menuToggle: document.getElementById('menu-toggle'),
+    nav: document.getElementById('nav'),
+    filterContainer: document.getElementById('filter-container'),
+    filterToggle: document.getElementById('filter'),
+    filters: document.querySelectorAll('.filter-item'),
+    closeFilters: document.getElementById('closeFilters'),
+    navIdentifier: document.getElementById('nav-identifier'),
+    navItems: document.querySelectorAll('.identify')
   }
-})
 
-// Show menu when clicked
-menuToggle.addEventListener('click', function(e) {
-  if (nav.classList.contains('mobile-hide')) {
-    nav.classList.remove('mobile-hide');
-  } else {
-    nav.classList.add('mobile-hide')
+  var app = {
+    init: function(){
+      serviceWorker.init();
+      if (config.filterContainer) {
+        filter.init();
+      }
+      if (config.nav) {
+        nav.init();
+      }
+    }
   }
-})
 
-filterToggle.addEventListener('click', function(e){
-  if (filterToggle.parentNode.parentNode.classList.contains('filter-toggled')) {
-    filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
-  } else {
-    filterToggle.parentNode.parentNode.classList.add('filter-toggled');
+  var serviceWorker = {
+    init: function(){
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    }
   }
-})
 
-closeFilters.addEventListener('click', function(e) {
-  filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
-})
+  var filter = {
+    init: function(){
+      // Show filter only if there is javascript
+      config.filterContainer.classList.remove('hide');
 
-// Throw some spotlight on clicked course types
-filters.forEach(function(f) {
-  if (document.querySelectorAll('.' + f.id).length == 0) {
-    document.getElementById(f.id).classList.add('hide');
+      config.filterToggle.addEventListener('click', function(e){
+        if (config.filterToggle.parentNode.parentNode.classList.contains('filter-toggled')) {
+          config.filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
+        } else {
+          config.filterToggle.parentNode.parentNode.classList.add('filter-toggled');
+        }
+      })
+
+      config.closeFilters.addEventListener('click', function(e) {
+        config.filterToggle.parentNode.parentNode.classList.remove('filter-toggled');
+      })
+      filter.spotlight();
+    },
+    spotlight: function(){
+      config.filters.forEach(function(f) {
+        if (document.querySelectorAll('.' + f.id).length == 0) {
+          document.getElementById(f.id).classList.add('hide');
+        }
+        document.getElementById(f.id).addEventListener('click', function(e) {
+          config.filters.forEach(function(fe) {
+            document.getElementById(fe.id).classList.remove('filter-clicked');
+          })
+          document.getElementById(e.target.id).classList.add('filter-clicked');
+
+          document.querySelectorAll('.course').forEach(function(vak) {
+            vak.classList.remove('spotlight');
+          })
+          document.querySelectorAll('.' + this.id).forEach(function(vak) {
+            vak.classList.add('spotlight');
+          })
+        })
+      })
+    }
   }
-  document.getElementById(f.id).addEventListener('click', function(e) {
-    filters.forEach(function(fe) {
-      document.getElementById(fe.id).classList.remove('filter-clicked');
-    })
-    document.getElementById(e.target.id).classList.add('filter-clicked');
 
-    document.querySelectorAll('.course').forEach(function(vak) {
-      vak.classList.remove('spotlight');
-    })
-    document.querySelectorAll('.' + this.id).forEach(function(vak) {
-      vak.classList.add('spotlight');
-    })
-  })
-})
+  var nav = {
+    init: function(){
+      // Let the user know on which page they are
+      config.navItems.forEach(function(item) {
+        if (config.navIdentifier.innerHTML == item.firstElementChild.children[1].innerHTML) {
+          item.classList.add('active');
+        }
+      })
+
+      // Show mobile menu when clicked
+      config.menuToggle.addEventListener('click', function(e) {
+        if (config.nav.classList.contains('mobile-hide')) {
+          config.nav.classList.remove('mobile-hide');
+        } else {
+          config.nav.classList.add('mobile-hide')
+        }
+      })
+    }
+  }
+
+  app.init();
+}())

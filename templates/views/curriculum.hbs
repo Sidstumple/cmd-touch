@@ -1,11 +1,11 @@
-<div class="grid-container">
+<main class="grid-container">
   <h1>Bekijk het CMD curriculum per jaar:</h1>
 
-  <div class="curricula">
+  <section class="curricula">
     {{# each curriculum}}
-    <div class="curriculum">
+    <section class="curriculum">
       <h2><a href="{{yearUrl slug}}" class="{{slug}}" style="background-image: url({{cloudinaryUrl image}})">{{title}}</a></h2>
-    </div>
+    </section>
     {{/each}}
-  </div>
-</div>
+  </section>
+</main>

@@ -1,13 +1,13 @@
 <nav id="nav" class="mobile-hide">
   <div class="years">
+    <div class="nav-item back">
+      <div onclick="history.back()"><img src="/images/terug.svg" alt="Ga een pagina terug"></div>
+      <div onclick="history.go(+1)"><img src="/images/vooruit.svg" alt="Ga een pagina vooruit"></div>
+    </div>
     {{#each allYears}}
     <div class="nav-item identify">
       <a href="/curriculum/{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon"><p>{{title}}</p></a>
-
     </div>
     {{/each}}
-    <div class="nav-item back">
-      <p onclick="history.back()"><img src="/images/terug.svg" alt="CMD icon">Terug</p>
-    </div>
   </div>
 </nav>
