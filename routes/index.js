@@ -23,6 +23,7 @@ var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 var compressor = require('node-minify');
 
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -38,6 +39,7 @@ exports = module.exports = function (app) {
 	app.get('/', function(req, res) {
 		res.redirect('/curriculum')
 	});
+
 	app.get('/curriculum', routes.views.curriculum);
 	app.get('/curriculum/:year', routes.views.year);
 	app.get('/curriculum/:year/vak/:course', routes.views.course);
@@ -47,15 +49,15 @@ exports = module.exports = function (app) {
 };
 
 compressor.minify({
-  compressor: 'clean-css',
-  input: '/styles/style.css',
-  output: '/styles/style-min.css',
-  callback: function (err, min) {}
+	compressor: 'clean-css',
+	input: 'public/styles/style.css',
+	output: 'public/styles/style-min.css',
+	callback: function (err, min) {}
 });
 
 compressor.minify({
-  compressor: 'gcc',
-  input: '/js/index.js',
-  output: '/js/index-min.js',
-  callback: function (err, min) {}
+	compressor: 'gcc',
+	input: '/js/index.js',
+	output: '/js/index-min.js',
+	callback: function (err, min) {}
 });

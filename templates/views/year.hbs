@@ -3,18 +3,48 @@
     <div class="filter-items">
       <h3>Laat vakken zien die te maken hebben met:</h3>
       <p class="filter-title" id="filter">Filter vakken</p>
+      <div class="main-coursetypes">
       {{#each courseType}}
         {{#ifCond slug '!==' 'stage'}}
-          <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
-        {{else}}
-          <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+          {{#ifCond slug '!==' 'keuzevak'}}
+            <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+          {{/ifCond}}
         {{/ifCond}}
       {{/each}}
+    </div>
+    <hr>
+    <div class="special-coursetypes">
+      {{#each courseType}}
+        {{#ifCond slug '==' 'stage'}}
+        <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+        {{/ifCond}}
+        {{#ifCond slug '==' 'keuzevak'}}
+        <p class="filter-item" id="{{slug}}"><img src="{{cloudinaryUrl image}}" alt="CMD icon">{{title}}</p>
+        {{/ifCond}}
+      {{/each}}
+    </div>
     </div>
   </section>
 
   <main class="content">
     <section class="standard-container filter-margin" id="closeFilters">
+      <section class="legenda-container">
+        <h4 class="legenda-title">Legenda:</h4>
+        <div class="legenda">
+          <div class="projecten project-legenda course">
+          </div>
+          <p>Projecten</p>
+          <div class="kernvakken course">
+          </div>
+          <p>Kernvakken</p>
+          <div class="profilering keuzevak-legenda course">
+          </div>
+          <p>Profileringsvakken</p>
+          <div class="course stages stage-legenda">
+          </div>
+          <p>Stage</p>
+        </div>
+      </section>
       <h2 class='year-title' id="nav-identifier">{{year.title}}</h2>
       <div class="column-grid">
         {{#ifCond year.slug '==' 'propedeuse'}}
@@ -217,18 +247,6 @@
                 <a href="{{year}}/vak/{{slug}}">{{title}}</a>
               </section>
               {{/ifeq}}
-
-              {{!--Check if there are profileringsvakken--}}
-              {{#ifeq type 'profilering'}}
-              <section>
-                <p>* Profileringsvakken:</p>
-                {{#each connectedCourses}}
-                <div class="course {{#each courseType}} {{slug}}{{/each}}">
-                  <a href="{{year}}/vak/{{slug}}">{{title}}</a>
-                </div>
-                {{/each}}
-              </section>
-              {{/ifeq}}
             {{/ifeq}}
             {{/each}}
           </section>
@@ -284,7 +302,7 @@
             {{#each course}}
               {{#ifeq blok 'semester-1'}}
                 <section class="vakken">
-                  <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                  <div class="course higher {{#each courseType}} {{slug}}{{/each}}">
                     <a href="{{year}}/vak/{{slug}}">{{title}}</a>
                   </div>
                 </section>
@@ -299,7 +317,7 @@
             {{#each course}}
               {{#ifeq blok 'semester-2'}}
                 <section class="vakken">
-                  <div class="course {{#each courseType}} {{slug}}{{/each}}">
+                  <div class="course higher {{#each courseType}} {{slug}}{{/each}}">
                     <a href="{{year}}/vak/{{slug}}">{{title}}</a>
                   </div>
                 </section>
@@ -310,24 +328,6 @@
       </div>
 
       <p class="year-description columns">{{year.description}}</p>
-
-      <section class="legenda-container">
-        <h4 class="legenda-title">Legenda:</h4>
-        <div class="legenda">
-          <div class="projecten project-legenda course">
-          </div>
-          <p>Projecten</p>
-          <div class="kernvakken course">
-          </div>
-          <p>Kernvakken</p>
-          <div class="profilering keuzevak-legenda course">
-          </div>
-          <p>Profileringsvakken</p>
-          <div class="course stages stage-legenda">
-          </div>
-          <p>Stage</p>
-        </div>
-      </section>
     </section>
 
     <nav class="toggle hide" id="menu-toggle">

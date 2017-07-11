@@ -19,6 +19,12 @@ h2 {
 }
 
 /*Reusable classes*/
+hr {
+  border: 0.1em solid;
+  margin-left: 0em;
+  width: 80%;
+}
+
 .sidebar-layout {
   display: flex;
 }
@@ -132,12 +138,12 @@ h2 {
 }
 
 .blok-title {
-  font-size: 0.8em;
-  background: #333;
-  color: white;
+  font-size: .8em;
+  background: #666;
+  color: #fff;
   text-align: center;
-  padding: 0.2em;
-  margin-top: 0.5em;
+  padding: .2em;
+  margin-top: .5em;
 }
 
 .blok-title h2 {
@@ -231,6 +237,11 @@ h2 {
   color: black;
 }
 
+.profilering-container {
+  background: white;
+  padding: 0.5em;
+}
+
 svg {
   width: 1em;
 }
@@ -239,7 +250,7 @@ svg {
 .legenda-container {
   background: white;
   padding: 0.5em;
-  margin-bottom: 5em;
+  margin-top: .5em;
 }
 
 .legenda-title {
@@ -286,8 +297,12 @@ svg {
 
 .blokken .spotlight {
   animation: spotlight 1s ease-in-out;
-  border-top: 0.3em solid #009B8F;
-  background-position: 0.2em 0;
+  border-left: .3em solid #009b8f;
+  background-position: .2em 0;
+}
+
+.higher {
+  height: 8em;
 }
 
 @keyframes spotlight{
@@ -443,7 +458,7 @@ iframe + p {
   box-sizing: border-box;
   width: 16em;
   transition: 1s;
-  animation: wellhello 1s 2;
+  animation: wellhello 1s 1;
 }
 
 .filter-items h3 {
@@ -479,6 +494,12 @@ iframe + p {
   color: #EB5D56;
 }
 
+.main-coursetypes, .special-coursetypes  {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .filter-item {
   z-index: 999;
   cursor: pointer;
@@ -491,7 +512,13 @@ iframe + p {
   letter-spacing: 0.1em;
   text-align: center;
   height: 3em;
+  order: 2;
 }
+
+#project {
+  order: 1;
+}
+
 
 .filter img {
   height: 2em;
@@ -641,10 +668,14 @@ nav img {
   }
 }
 
-@media (max-width: 60.1em) {
-  .legenda-container {
+@media (max-width: 63.875em) {
+  .year-description {
     margin-bottom: 20em;
   }
+}
+
+
+@media (max-width: 60.1em) {
   .filter-toggled .filter-title {
     margin-left: 10em;
   }

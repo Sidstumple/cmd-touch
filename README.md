@@ -24,7 +24,7 @@ http://cmd-touch.herokuapp.com/keystone
 
 
 ## [Case](#case)
-The open days of the study Communication & Multimedia Design (CMD) at the University of Applied Sciences Amsterdam are meant to give students insight into what the study entails and what they can expect. A notable addition to the open day is the large touchscreen where students can view the curriculum on. Multitouch gestures, however, are not well supported on the touchscreen, making it almost impossible to scroll. Tapping however works very well and is a fun, interactive way for people to get a clear overview of what CMD has to offer. The challenge I took on was making the website easily navigatable, inviting to look at, informative and easy to maintain for the administrator. 
+The open days of the study Communication & Multimedia Design (CMD) at the University of Applied Sciences Amsterdam are meant to give students insight into what the study entails and what they can expect. A notable addition to the open day is the large touchscreen where students can view the curriculum on. Multitouch gestures, however, are not well supported on the touchscreen, making it almost impossible to scroll. Tapping does work and is a fun, interactive way for people to get a clear overview of what CMD has to offer. The challenge I took on was making the website easily navigatable, inviting to look at, informative and easy to maintain for the administrator. 
 
 ## [Feature list](#feature-list)
 * CMS
@@ -44,7 +44,7 @@ The open days of the study Communication & Multimedia Design (CMD) at the Univer
 
 ## [KeystoneJS](#keystonejs)
 To tackle the challenge of making the website easy to maintain for the administrator the first logical step was to find a suitable content management system (CMS). I researched a couple different CMSs before settling on Keystone.js. 
-KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. 
+KeystoneJS is a database driven CMS that uses MongoDB, I have worked with MongoDB before and really liked the clear syntax of it. I chose Keystone above a CMS like Wordpress because it's completely written in Javascript and easy to customize to your own preferences. It uses MongoDB's models and has a lot of predefined types that you can use to make your text fields. [The manual for the CMS can be found here](/manual.md)
 
 ## [Web App From Scratch](#web-app-from-scratch)
 This website has a [code guideline](/code-styleguide.md) to make sure all code is comprehensible and follows the same structure.
@@ -262,7 +262,7 @@ MONGO_URI
 
 ## [Wishlist](#wishlist)
 - [ ] Suggestions on detail page based on course types of current course
-- [ ] Manual for the backend
+- [x] Manual for the backend
 - [x] Minifying
 - [x] Skeleton loading
 - [x] Better feedback method for when a filter doesn't match any course on a page (see: [Filter by course type](#filter-by-course-type))
